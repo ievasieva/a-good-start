@@ -1,0 +1,30 @@
+{
+  "morningPages": [
+    "How do you feel about the day ahead?",
+    "What are you looking forward to?",
+    "What's on your mind? Where are your thoughts travelling towards?",
+    "What's inspiring you at the moment?"
+  ],
+  "futureSelf": [
+    "What behavior or pattern you're currently working on in your life?",
+    "What are the daily affirmations or statements that will help you achieve this?",
+    "I am grateful for:",
+    "The person I am becoming will experience more:",
+    "I have an opportunity to be my future self today when I:",
+    "When I think about who I am becoming I feel:"
+  ],
+  "morningProductivity": [
+    "What's one action you can take today that'll push you closer to your goal?",
+    "What's one thing that you absolutely must do today?",
+    "What are three smaller things that you should do that will make your life easier?",
+    "Any barriers you face and their solutions if you can find some. How can you increase your chances of reaching your goals?",
+    "What is the one thing you can do today that would make the world better?"
+  ],
+  "gratitude": [
+    "What are you grateful for?"
+  ],
+  "manifestation": [
+    "By ____, I will:",
+    "I will get there by:"
+  ]
+}
