@@ -23,8 +23,8 @@ document.getElementById('start-button').addEventListener('click', () => {
     selectedApproach = selectedApproach.concat(approaches[box.value]);
   });
 
-  // Hide the form and show the first question
-  document.getElementById('journal-form').style.display = 'none';
+  // Hide the instruction page and show the question container
+  document.getElementById('instruction-page').style.display = 'none';
   document.getElementById('question-container').style.display = 'block';
   
   displayNextQuestion();
@@ -58,9 +58,14 @@ document.getElementById('next-button').addEventListener('click', () => {
   displayNextQuestion();
 });
 
+// Function to format entries for downloads
+function formatEntries() {
+  return journalEntries.map(entry => `## ${entry.question}\n${entry.answer}\n\n`).join('');
+}
+
 // Download as Markdown
-document.getElementById('download-button').addEventListener('click', () => {
-  const content = journalEntries.map(entry => `### Q: ${entry.question}\n**A:** ${entry.answer}\n\n`).join('');
+document.getElementById('download-markdown-button').addEventListener('click', () => {
+  const content = formatEntries();
   const blob = new Blob([content], { type: 'text/markdown' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
@@ -68,31 +73,32 @@ document.getElementById('download-button').addEventListener('click', () => {
   link.click();
 });
 
-// Function to generate ENEX content
-function generateEnexContent() {
+// Download as Text
+document.getElementById('download-text-button').addEventListener('click', () => {
+  const content = formatEntries();
+  const blob = new Blob([content], { type: 'text/plain' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'journal.txt'; // Name of the Text file
+  link.click();
+});
+
+// Download ENEX file as one note
+document.getElementById('download-enex-button').addEventListener('click', () => {
   const enexHeader = '<?xml version="1.0" encoding="UTF-8"?>\n<en-export export-date="' + new Date().toISOString() + '" application="A Good Start">\n';
   const enexFooter = '</en-export>';
-  
-  const enexNotes = journalEntries.map(entry => `
+  const enexNote = `
     <note>
       <title>Journal Entry</title>
       <content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
-        <en-note>
-          <div><b>Q:</b> ${entry.question}</div>
-          <div><b>A:</b> ${entry.answer}</div>
+        <en-note>${journalEntries.map(entry => `<div>## ${entry.question}</div><div>${entry.answer}</div><br>`).join('')}
         </en-note>
       ]]></content>
       <created>${new Date().toISOString()}</created>
     </note>
-  `).join('');
-
-  return enexHeader + enexNotes + enexFooter;
-}
-
-// Download ENEX file
-document.getElementById('download-enex-button').addEventListener('click', () => {
-  const enexContent = generateEnexContent();
+  `;
+  const enexContent = enexHeader + enexNote + enexFooter;
   const blob = new Blob([enexContent], { type: 'application/xml' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
@@ -100,10 +106,9 @@ document.getElementById('download-enex-button').addEventListener('click', () => 
   link.click();
 });
 
-
 // Trigger email client with journal entries
 document.getElementById('email-button').addEventListener('click', () => {
-  const content = journalEntries.map(entry => `Q: ${entry.question}\nA: ${entry.answer}\n\n`).join('');
+  const content = formatEntries();
   const subject = encodeURIComponent("Your Journal Entries");
   const body = encodeURIComponent(content);
   const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
