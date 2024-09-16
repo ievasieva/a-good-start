@@ -68,6 +68,39 @@ document.getElementById('download-button').addEventListener('click', () => {
   link.click();
 });
 
+// Function to generate ENEX content
+function generateEnexContent() {
+  const enexHeader = '<?xml version="1.0" encoding="UTF-8"?>\n<en-export export-date="' + new Date().toISOString() + '" application="A Good Start">\n';
+  const enexFooter = '</en-export>';
+  
+  const enexNotes = journalEntries.map(entry => `
+    <note>
+      <title>Journal Entry</title>
+      <content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+        <en-note>
+          <div><b>Q:</b> ${entry.question}</div>
+          <div><b>A:</b> ${entry.answer}</div>
+        </en-note>
+      ]]></content>
+      <created>${new Date().toISOString()}</created>
+    </note>
+  `).join('');
+
+  return enexHeader + enexNotes + enexFooter;
+}
+
+// Download ENEX file
+document.getElementById('download-enex-button').addEventListener('click', () => {
+  const enexContent = generateEnexContent();
+  const blob = new Blob([enexContent], { type: 'application/xml' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'journal.enex'; // Name of the ENEX file
+  link.click();
+});
+
+
 // Trigger email client with journal entries
 document.getElementById('email-button').addEventListener('click', () => {
   const content = journalEntries.map(entry => `Q: ${entry.question}\nA: ${entry.answer}\n\n`).join('');
