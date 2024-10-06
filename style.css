@@ -1,8 +1,3 @@
-textarea {
-  height: 200px;
-  resize: vertical; /* Allow users to resize the text area */
-}
-
 /* Numbered accent colors */
 .accent-1 {
     --accent-color: #ff5733; /* Example color */
@@ -50,4 +45,10 @@ textarea {
     font-weight: 500; /* font-medium */
     color: #1f2937; /* text-gray-900 */
     dark:color: #d1d5db; /* dark:text-gray-300 */
+}
+
+/* Existing textarea style */
+textarea {
+  height: 200px;
+  resize: vertical; /* Allow users to resize the text area */
 }
