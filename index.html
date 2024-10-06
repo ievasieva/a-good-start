@@ -15,13 +15,28 @@
     <h1 class="text-4xl font-bold mb-4">A Good Start</h1>
     <p class="text-xl mb-4">Choose Your Journaling Approach</p>
 
-  <form id="journal-form" class="space-y-4">
+<form id="journal-form" class="space-y-4">
   <div class="form-control space-y-4">
-    <label class="block"><input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-bordered mr-2"> Morning Pages</label>
-    <label class="block"><input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-bordered mr-2"> Future Self</label>
-    <label class="block"><input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-bordered mr-2"> Morning Productivity</label>
-    <label class="block"><input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-bordered mr-2"> Gratitude</label>
-    <label class="block"><input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-bordered mr-2"> Manifestation</label>
+    <div class="flex-container accent-1">
+      <input id="bordered-checkbox-1" type="checkbox" name="approach" value="morningPages" class="checkbox-custom">
+      <label for="bordered-checkbox-1" class="label-custom">Morning Pages</label>
+    </div>
+    <div class="flex-container accent-2">
+      <input id="bordered-checkbox-2" type="checkbox" name="approach" value="futureSelf" class="checkbox-custom">
+      <label for="bordered-checkbox-2" class="label-custom">Future Self</label>
+    </div>
+    <div class="flex-container accent-3">
+      <input id="bordered-checkbox-3" type="checkbox" name="approach" value="morningProductivity" class="checkbox-custom">
+      <label for="bordered-checkbox-3" class="label-custom">Morning Productivity</label>
+    </div>
+    <div class="flex-container accent-4">
+      <input id="bordered-checkbox-4" type="checkbox" name="approach" value="gratitude" class="checkbox-custom">
+      <label for="bordered-checkbox-4" class="label-custom">Gratitude</label>
+    </div>
+    <div class="flex-container accent-5">
+      <input id="bordered-checkbox-5" type="checkbox" name="approach" value="manifestation" class="checkbox-custom">
+      <label for="bordered-checkbox-5" class="label-custom">Manifestation</label>
+    </div>
   </div>
   <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
 </form>
