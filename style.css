@@ -52,3 +52,26 @@ textarea {
   height: 200px;
   resize: vertical; /* Allow users to resize the text area */
 }
+
+/* Custom button styles */
+.button-custom {
+    color: #1f2937; /* text-gray-900 */
+    background-image: linear-gradient(to right, var(--accent-color-from, var(--accent-color)), var(--accent-color-via, var(--accent-color)), var(--accent-color-to, var(--accent-color)));
+    font-medium;
+    border-radius: 0.375rem; /* rounded-lg */
+    font-size: 0.875rem; /* text-sm */
+    padding: 0.625rem 1.25rem; /* px-5 py-2.5 */
+    text-align: center;
+    margin-right: 0.5rem; /* me-2 */
+    margin-bottom: 0.5rem; /* mb-2 */
+    transition: background-image 0.3s;
+}
+
+.button-custom:hover {
+    background-image: linear-gradient(to bottom left, var(--accent-color-from, var(--accent-color)), var(--accent-color-via, var(--accent-color)), var(--accent-color-to, var(--accent-color)));
+}
+
+.button-custom:focus {
+    outline: none;
+    ring: 4px solid var(--accent-color);
+}
