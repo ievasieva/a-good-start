@@ -7,81 +7,79 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet">
   <style>[data-theme="cupcake"]{--btn-primary:hsl(var(--p));--btn-primary-content:hsl(var(--pc));}</style>
 </head>
-<body data-theme="cupcake" class="bg-base-200">
-  <div class="container mx-auto p-8 max-w-lg text-center space-y-6">
+<body data-theme="cupcake" class="bg-base-200 text-center">
 
-    <!-- Title and subtitle -->
-    <h1 class="text-4xl font-bold">A good start</h1>
-    <p class="text-xl">Your daily journaling helper</p>
+  <!-- Title and subtitle -->
+  <h1 class="text-5xl font-bold mt-8">A good start</h1>
+  <p class="text-2xl mt-4 mb-8">Your daily journaling helper</p>
 
-    <!-- How it works section -->
-    <h2 class="text-2xl font-semibold">How does it work?</h2>
-    <p class="text-lg">Each set of prompts offered below consist of 2 to 5 questions. Choose what you feel like. Enter text in the boxes. Send a summary to your email, or to your notes, or download in the format you want.</p>
+  <!-- How it works section -->
+  <h2 class="text-3xl font-semibold">How does it work?</h2>
+  <p class="text-lg mt-4 mb-8">Each set of prompts offered below consists of 2 to 5 questions. Choose what you feel like. Enter text in the boxes. Send a summary to your email, or to your notes, or download in the format you want.</p>
 
-    <!-- Collapse box for more information -->
-    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-      <div class="collapse-title text-xl font-medium">
-        Find out more about the different prompts
-      </div>
-      <div class="collapse-content">
-        <p class="text-left text-lg">
-          <strong>Morning Pages:</strong> Helps you reflect on how you feel about the day ahead and what you're looking forward to.
-          <br><br>
-          <strong>Future Self:</strong> Prompts to reflect on the person you are becoming and how you can achieve your goals.
-          <br><br>
-          <strong>Morning Productivity:</strong> Focuses on prioritizing your day, setting goals, and identifying barriers to productivity.
-          <br><br>
-          <strong>Gratitude:</strong> Encourages you to reflect on what you're grateful for today.
-          <br><br>
-          <strong>Manifestation:</strong> Helps you set clear intentions for achieving your goals and dreams.
-        </p>
-      </div>
+  <!-- Collapse box for more information -->
+  <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mx-4">
+    <div class="collapse-title text-xl font-medium">
+      Find out more about the different prompts
     </div>
-
-    <!-- Form for journaling approach selection -->
-    <form id="journal-form" class="mt-6 space-y-4">
-      <div class="form-control space-y-4">
-        <label class="cursor-pointer flex items-center justify-start space-x-4">
-          <input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary">
-          <span class="text-lg">Morning Pages</span>
-        </label>
-        <label class="cursor-pointer flex items-center justify-start space-x-4">
-          <input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary">
-          <span class="text-lg">Future Self</span>
-        </label>
-        <label class="cursor-pointer flex items-center justify-start space-x-4">
-          <input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary">
-          <span class="text-lg">Morning Productivity</span>
-        </label>
-        <label class="cursor-pointer flex items-center justify-start space-x-4">
-          <input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary">
-          <span class="text-lg">Gratitude</span>
-        </label>
-        <label class="cursor-pointer flex items-center justify-start space-x-4">
-          <input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary">
-          <span class="text-lg">Manifestation</span>
-        </label>
-      </div>
-      <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
-    </form>
-
-    <!-- Question and answer container -->
-    <div id="question-container" style="display: none;" class="mt-6 space-y-4">
-      <p id="question" class="text-xl font-semibold"></p>
-      <textarea id="answer" class="textarea textarea-bordered h-32 w-full" placeholder="Write your answer here..."></textarea>
-      <button id="next-button" class="btn btn-secondary">Next</button>
+    <div class="collapse-content">
+      <p class="text-left text-lg">
+        <strong>Morning Pages:</strong> Helps you reflect on how you feel about the day ahead and what you're looking forward to.
+        <br><br>
+        <strong>Future Self:</strong> Prompts to reflect on the person you are becoming and how you can achieve your goals.
+        <br><br>
+        <strong>Morning Productivity:</strong> Focuses on prioritizing your day, setting goals, and identifying barriers to productivity.
+        <br><br>
+        <strong>Gratitude:</strong> Encourages you to reflect on what you're grateful for today.
+        <br><br>
+        <strong>Manifestation:</strong> Helps you set clear intentions for achieving your goals and dreams.
+      </p>
     </div>
-
-    <!-- Completion page -->
-    <div id="finish-container" style="display: none;" class="mt-6 space-y-4">
-      <h2 class="text-2xl font-bold">You're Done!</h2>
-      <button id="download-markdown-button" class="btn btn-accent">Download as Markdown</button>
-      <button id="download-enex-button" class="btn btn-accent">Download as ENEX</button>
-      <button id="download-text-button" class="btn btn-accent">Download as Text</button>
-      <button id="email-button" class="btn btn-accent">Send to Email</button>
-    </div>
-
   </div>
+
+  <!-- Form for journaling approach selection -->
+  <form id="journal-form" class="mt-6 space-y-4 mx-4">
+    <div class="form-control space-y-4">
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary">
+        <span class="text-lg">Morning Pages</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary">
+        <span class="text-lg">Future Self</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary">
+        <span class="text-lg">Morning Productivity</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary">
+        <span class="text-lg">Gratitude</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary">
+        <span class="text-lg">Manifestation</span>
+      </label>
+    </div>
+    <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
+  </form>
+
+  <!-- Question and answer container -->
+  <div id="question-container" style="display: none;" class="mt-6 space-y-4 mx-4">
+    <p id="question" class="text-xl font-semibold"></p>
+    <textarea id="answer" class="textarea textarea-bordered h-32 w-full" placeholder="Write your answer here..."></textarea>
+    <button id="next-button" class="btn btn-secondary">Next</button>
+  </div>
+
+  <!-- Completion page -->
+  <div id="finish-container" style="display: none;" class="mt-6 space-y-4 mx-4">
+    <h2 class="text-3xl font-bold">You're Done!</h2>
+    <button id="download-markdown-button" class="btn btn-accent">Download as Markdown</button>
+    <button id="download-enex-button" class="btn btn-accent">Download as ENEX</button>
+    <button id="download-text-button" class="btn btn-accent">Download as Text</button>
+    <button id="email-button" class="btn btn-accent">Send to Email</button>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
