@@ -4,10 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Good Start - Journal App</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet">
-  <style>[data-theme="cupcake"]{--btn-primary:hsl(var(--p));--btn-primary-content:hsl(var(--pc));}</style>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .collapse-content {
+      display: none;
+    }
+    .collapse.active .collapse-content {
+      display: block;
+    }
+    .arrow::before {
+      content: "▶ ";
+    }
+    .active .arrow::before {
+      content: "▼ ";
+    }
+    textarea {
+      height: 200px;
+      resize: vertical;
+    }
+  </style>
 </head>
-<body data-theme="cupcake" class="bg-base-200 text-center">
+<body class="bg-gray-100 text-center">
 
   <!-- Title and subtitle -->
   <h1 class="text-5xl font-bold mt-8">A good start</h1>
@@ -18,22 +36,14 @@
   <p class="text-lg mt-4 mb-8">Each set of prompts offered below consists of 2 to 5 questions. Choose what you feel like. Enter text in the boxes. Send a summary to your email, or to your notes, or download in the format you want.</p>
 
   <!-- Collapse box for more information -->
-  <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mx-4">
-    <div class="collapse-title text-xl font-medium">
-      Find out more about the different prompts
-    </div>
-    <div class="collapse-content">
-      <p class="text-left text-lg">
-        <strong>Morning Pages:</strong> Helps you reflect on how you feel about the day ahead and what you're looking forward to.
-        <br><br>
-        <strong>Future Self:</strong> Prompts to reflect on the person you are becoming and how you can achieve your goals.
-        <br><br>
-        <strong>Morning Productivity:</strong> Focuses on prioritizing your day, setting goals, and identifying barriers to productivity.
-        <br><br>
-        <strong>Gratitude:</strong> Encourages you to reflect on what you're grateful for today.
-        <br><br>
-        <strong>Manifestation:</strong> Helps you set clear intentions for achieving your goals and dreams.
-      </p>
+  <div class="border border-gray-300 bg-white rounded-lg p-4 mx-4">
+    <button class="collapse-button text-xl font-medium arrow focus:outline-none">Find out more about the different prompts</button>
+    <div class="collapse-content mt-4 text-left text-lg">
+      <p><strong>Morning Pages:</strong> Helps you reflect on how you feel about the day ahead and what you're looking forward to.</p>
+      <p class="mt-2"><strong>Future Self:</strong> Prompts to reflect on the person you are becoming and how you can achieve your goals.</p>
+      <p class="mt-2"><strong>Morning Productivity:</strong> Focuses on prioritizing your day, setting goals, and identifying barriers to productivity.</p>
+      <p class="mt-2"><strong>Gratitude:</strong> Encourages you to reflect on what you're grateful for today.</p>
+      <p class="mt-2"><strong>Manifestation:</strong> Helps you set clear intentions for achieving your goals and dreams.</p>
     </div>
   </div>
 
@@ -41,45 +51,52 @@
   <form id="journal-form" class="mt-6 space-y-4 mx-4">
     <div class="form-control space-y-4">
       <label class="cursor-pointer flex items-center justify-start space-x-4">
-        <input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary">
+        <input type="checkbox" name="approach" value="morningPages" class="form-checkbox h-5 w-5 text-blue-600">
         <span class="text-lg">Morning Pages</span>
       </label>
       <label class="cursor-pointer flex items-center justify-start space-x-4">
-        <input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary">
+        <input type="checkbox" name="approach" value="futureSelf" class="form-checkbox h-5 w-5 text-blue-600">
         <span class="text-lg">Future Self</span>
       </label>
       <label class="cursor-pointer flex items-center justify-start space-x-4">
-        <input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary">
+        <input type="checkbox" name="approach" value="morningProductivity" class="form-checkbox h-5 w-5 text-blue-600">
         <span class="text-lg">Morning Productivity</span>
       </label>
       <label class="cursor-pointer flex items-center justify-start space-x-4">
-        <input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary">
+        <input type="checkbox" name="approach" value="gratitude" class="form-checkbox h-5 w-5 text-blue-600">
         <span class="text-lg">Gratitude</span>
       </label>
       <label class="cursor-pointer flex items-center justify-start space-x-4">
-        <input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary">
+        <input type="checkbox" name="approach" value="manifestation" class="form-checkbox h-5 w-5 text-blue-600">
         <span class="text-lg">Manifestation</span>
       </label>
     </div>
-    <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
+    <button type="button" id="start-button" class="bg-blue-600 text-white py-2 px-4 rounded mt-6 hover:bg-blue-700">Start Journaling</button>
   </form>
 
   <!-- Question and answer container -->
   <div id="question-container" style="display: none;" class="mt-6 space-y-4 mx-4">
     <p id="question" class="text-xl font-semibold"></p>
-    <textarea id="answer" class="textarea textarea-bordered h-32 w-full" placeholder="Write your answer here..."></textarea>
-    <button id="next-button" class="btn btn-secondary">Next</button>
+    <textarea id="answer" class="textarea w-full p-2 border rounded-md" placeholder="Write your answer here..."></textarea>
+    <button id="next-button" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Next</button>
   </div>
 
   <!-- Completion page -->
   <div id="finish-container" style="display: none;" class="mt-6 space-y-4 mx-4">
     <h2 class="text-3xl font-bold">You're Done!</h2>
-    <button id="download-markdown-button" class="btn btn-accent">Download as Markdown</button>
-    <button id="download-enex-button" class="btn btn-accent">Download as ENEX</button>
-    <button id="download-text-button" class="btn btn-accent">Download as Text</button>
-    <button id="email-button" class="btn btn-accent">Send to Email</button>
+    <button id="download-markdown-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Download as Markdown</button>
+    <button id="download-enex-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Download as ENEX</button>
+    <button id="download-text-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Download as Text</button>
+    <button id="email-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Send to Email</button>
   </div>
 
-  <script src="app.js"></script>
+  <script>
+    // Toggle collapse box
+    document.querySelector('.collapse-button').addEventListener('click', function() {
+      this.classList.toggle('active');
+      this.nextElementSibling.classList.toggle('active');
+    });
+  </script>
+
 </body>
 </html>
