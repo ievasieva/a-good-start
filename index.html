@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Good Start - Journal App</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-pastel-light text-center">
@@ -14,18 +15,18 @@
     <h1 class="text-4xl font-bold mb-4">A Good Start</h1>
     <p class="text-xl mb-4">Choose Your Journaling Approach</p>
 
-    <form id="journal-form" class="space-y-4">
-      <div class="form-control space-y-4">
-        <label class="block"><input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary mr-2"> Morning Pages</label>
-        <label class="block"><input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary mr-2"> Future Self</label>
-        <label class="block"><input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary mr-2"> Morning Productivity</label>
-        <label class="block"><input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary mr-2"> Gratitude</label>
-        <label class="block"><input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary mr-2"> Manifestation</label>
-      </div>
-      <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
-    </form>
+  <form id="journal-form" class="space-y-4">
+  <div class="form-control space-y-4">
+    <label class="block"><input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-bordered mr-2"> Morning Pages</label>
+    <label class="block"><input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-bordered mr-2"> Future Self</label>
+    <label class="block"><input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-bordered mr-2"> Morning Productivity</label>
+    <label class="block"><input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-bordered mr-2"> Gratitude</label>
+    <label class="block"><input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-bordered mr-2"> Manifestation</label>
   </div>
-
+  <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
+</form>
+    
+  </div>
   <!-- Question and answer container -->
   <div id="question-container" style="display: none;" class="mt-6 space-y-4">
     <p id="question" class="text-xl font-semibold"></p>
@@ -43,5 +44,6 @@
   </div>
 
   <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.0/dist/flowbite.min.js"></script>
 </body>
 </html>
