@@ -5,41 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Good Start - Journal App</title>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Enable the cupcake theme
+    document.documentElement.setAttribute('data-theme', 'cupcake');
+  </script>
 </head>
-<body class="bg-pastel-light">
-  <div class="container mx-auto p-4 max-w-lg">
+<body class="bg-base-200">
+  <div class="container mx-auto p-4 max-w-xl text-center space-y-6">
     
-    <!-- Instruction page (first page) -->
-    <div id="instruction-page" class="mb-4">
-      <h1 class="text-3xl font-bold mb-4">A Good Start</h1>
-      <p class="text-lg mb-4">Choose Your Journaling Approach</p>
-      <form id="journal-form">
-        <div class="mb-4 space-y-2">
-          <label><input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary"> Morning Pages</label>
-          <label><input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary"> Future Self</label>
-          <label><input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary"> Morning Productivity</label>
-          <label><input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary"> Gratitude</label>
-          <label><input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary"> Manifestation</label>
-        </div>
-        <button type="button" id="start-button" class="btn btn-primary">Start Journaling</button>
-      </form>
+    <!-- Title and Subtitle -->
+    <h1 class="text-4xl font-bold">A Good Start</h1>
+    <p class="text-xl text-gray-600">Your daily journaling helper</p>
+
+    <!-- How Does It Work Section -->
+    <div class="text-left">
+      <h2 class="text-lg font-bold">How does it work?</h2>
+      <p class="mt-2">Each set of prompts offered below consist of 2 to 5 questions. Choose what you feel like. Enter text in the boxes. Send a summary to your email, or to your notes, or download in the format you want.</p>
     </div>
-    
-    <!-- Question and answer container -->
-    <div id="question-container" style="display: none;">
+
+    <!-- Collapsible Info Section -->
+    <div class="collapse w-full">
+      <input type="checkbox" class="peer" />
+      <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+        Find out more about the different prompts
+      </div>
+      <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+        <p class="mt-2"><strong>Morning Pages</strong>: A freewriting exercise to clear your mind at the start of the day.</p>
+        <p><strong>Future Self</strong>: Prompts to help you envision the person you want to become.</p>
+        <p><strong>Morning Productivity</strong>: Questions designed to kickstart your day with focus and purpose.</p>
+        <p><strong>Gratitude</strong>: Simple reflections to remind you of the things you're grateful for.</p>
+        <p><strong>Manifestation</strong>: Focuses on setting intentions and visualizing your goals.</p>
+      </div>
+    </div>
+
+    <!-- Form for Selecting Journaling Prompts -->
+    <form id="journal-form" class="text-left space-y-4">
+      <label class="block">
+        <input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary" />
+        Morning Pages
+      </label>
+      <label class="block">
+        <input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary" />
+        Future Self
+      </label>
+      <label class="block">
+        <input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary" />
+        Morning Productivity
+      </label>
+      <label class="block">
+        <input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary" />
+        Gratitude
+      </label>
+      <label class="block">
+        <input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary" />
+        Manifestation
+      </label>
+      <button type="button" id="start-button" class="btn btn-primary w-full mt-4">Start Journaling</button>
+    </form>
+
+    <!-- Question and Answer Section -->
+    <div id="question-container" class="mt-6 text-left" style="display: none;">
       <p id="question" class="text-lg font-semibold"></p>
-      <textarea id="answer" class="textarea textarea-bordered h-32 w-full" placeholder="Write your answer here..."></textarea>
-      <button id="next-button" class="btn btn-secondary mt-4">Next</button>
+      <textarea id="answer" class="textarea textarea-bordered h-32 w-full mt-4" placeholder="Write your answer here..."></textarea>
+      <button id="next-button" class="btn btn-secondary w-full mt-4">Next</button>
     </div>
-    
-    <!-- Completion page -->
-    <div id="finish-container" style="display: none;">
+
+    <!-- Finish Section -->
+    <div id="finish-container" class="mt-6" style="display: none;">
       <h2 class="text-2xl font-bold mb-4">You're Done!</h2>
-      <button id="download-markdown-button" class="btn btn-accent mb-2">Download as Markdown</button>
-      <button id="download-enex-button" class="btn btn-accent mb-2">Download as ENEX</button>
-      <button id="download-text-button" class="btn btn-accent mb-2">Download as Text</button>
-      <button id="email-button" class="btn btn-accent mb-2">Send to Email</button>
+      <button id="download-markdown-button" class="btn btn-accent w-full mb-2">Download as Markdown</button>
+      <button id="download-enex-button" class="btn btn-accent w-full mb-2">Download as ENEX</button>
+      <button id="download-text-button" class="btn btn-accent w-full mb-2">Download as Text</button>
+      <button id="email-button" class="btn btn-accent w-full mb-2">Send to Email</button>
     </div>
   </div>
   <script src="app.js"></script>
