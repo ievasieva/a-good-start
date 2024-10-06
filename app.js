@@ -1,120 +1,161 @@
-let selectedApproach = [];
-let currentQuestionIndex = 0;
-let journalEntries = [];
-let approaches = {}; // Initialize as empty
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Good Start - Journal App</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .collapse-content {
+      display: none;
+    }
+    .active .collapse-content {
+      display: block;
+    }
+    .arrow::before {
+      content: "▶ ";
+    }
+    .active .arrow::before {
+      content: "▼ ";
+    }
+    textarea {
+      height: 200px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-center">
 
-// Fetch questions from the external JSON file
-fetch('questions.json')
-  .then(response => response.json())
-  .then(data => {
-    approaches = data;  // Load questions into the approaches object
-  })
-  .catch(error => console.error("Error loading questions:", error));
+  <!-- Title and subtitle -->
+  <h1 class="text-5xl font-bold mt-8">A good start</h1>
+  <p class="text-2xl mt-4 mb-8">Your daily journaling helper</p>
 
-document.getElementById('start-button').addEventListener('click', () => {
-  const checkedBoxes = document.querySelectorAll('input[name="approach"]:checked');
-  if (checkedBoxes.length === 0) {
-    alert("Please select at least one approach");
-    return;
-  }
-  
-  // Collect selected approaches
-  checkedBoxes.forEach(box => {
-    selectedApproach = selectedApproach.concat(approaches[box.value]);
-  });
+  <!-- How it works section -->
+  <h2 class="text-3xl font-semibold">How does it work?</h2>
+  <p class="text-lg mt-4 mb-8">Each set of prompts offered below consists of 2 to 5 questions. Choose what you feel like. Enter text in the boxes. Send a summary to your email, or to your notes, or download in the format you want.</p>
 
-  // Hide the instruction page and show the question container
-  document.getElementById('instruction-page').style.display = 'none';
-  document.getElementById('question-container').style.display = 'block';
-  
-  displayNextQuestion();
-});
+  <!-- Collapse box for more information -->
+  <div class="border border-gray-300 bg-white rounded-lg p-4 mx-4">
+    <button id="collapse-button" class="text-xl font-medium arrow focus:outline-none">Find out more about the different prompts</button>
+    <div id="collapse-content" class="collapse-content mt-4 text-left text-lg">
+      <p><strong>Morning Pages:</strong> Helps you reflect on how you feel about the day ahead and what you're looking forward to.</p>
+      <p class="mt-2"><strong>Future Self:</strong> Prompts to reflect on the person you are becoming and how you can achieve your goals.</p>
+      <p class="mt-2"><strong>Morning Productivity:</strong> Focuses on prioritizing your day, setting goals, and identifying barriers to productivity.</p>
+      <p class="mt-2"><strong>Gratitude:</strong> Encourages you to reflect on what you're grateful for today.</p>
+      <p class="mt-2"><strong>Manifestation:</strong> Helps you set clear intentions for achieving your goals and dreams.</p>
+    </div>
+  </div>
 
-function displayNextQuestion() {
-  if (currentQuestionIndex >= selectedApproach.length) {
-    document.getElementById('question-container').style.display = 'none';
-    document.getElementById('finish-container').style.display = 'block';
-    return;
-  }
+  <!-- Form for journaling approach selection -->
+  <form id="journal-form" class="mt-6 space-y-4 mx-4">
+    <div class="form-control space-y-4">
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="morningPages" class="form-checkbox h-5 w-5 text-blue-600">
+        <span class="text-lg">Morning Pages</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="futureSelf" class="form-checkbox h-5 w-5 text-blue-600">
+        <span class="text-lg">Future Self</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="morningProductivity" class="form-checkbox h-5 w-5 text-blue-600">
+        <span class="text-lg">Morning Productivity</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="gratitude" class="form-checkbox h-5 w-5 text-blue-600">
+        <span class="text-lg">Gratitude</span>
+      </label>
+      <label class="cursor-pointer flex items-center justify-start space-x-4">
+        <input type="checkbox" name="approach" value="manifestation" class="form-checkbox h-5 w-5 text-blue-600">
+        <span class="text-lg">Manifestation</span>
+      </label>
+    </div>
+    <button type="button" id="start-button" class="bg-blue-600 text-white py-2 px-4 rounded mt-6 hover:bg-blue-700">Start Journaling</button>
+  </form>
 
-  document.getElementById('question').textContent = selectedApproach[currentQuestionIndex];
-  document.getElementById('answer').value = '';
-}
+  <!-- Question and answer container -->
+  <div id="question-container" style="display: none;" class="mt-6 space-y-4 mx-4">
+    <p id="question" class="text-xl font-semibold"></p>
+    <textarea id="answer" class="textarea w-full p-2 border rounded-md" placeholder="Write your answer here..."></textarea>
+    <button id="next-button" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Next</button>
+  </div>
 
-document.getElementById('next-button').addEventListener('click', () => {
-  const answer = document.getElementById('answer').value;
-  if (answer.trim() === '') {
-    alert("Please provide an answer before moving on");
-    return;
-  }
+  <!-- Completion page -->
+  <div id="finish-container" style="display: none;" class="mt-6 space-y-4 mx-4">
+    <h2 class="text-3xl font-bold">You're Done!</h2>
+    <button id="download-markdown-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Download as Markdown</button>
+    <button id="download-enex-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Download as ENEX</button>
+    <button id="download-text-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Download as Text</button>
+    <button id="email-button" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Send to Email</button>
+  </div>
 
-  // Save the entry
-  journalEntries.push({
-    question: selectedApproach[currentQuestionIndex],
-    answer: answer
-  });
+  <script>
+    // Toggle collapse box functionality
+    document.getElementById('collapse-button').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('collapse-content').classList.toggle('active');
+    });
 
-  currentQuestionIndex++;
-  displayNextQuestion();
-});
+    // Data to simulate journaling questions (you can replace this with dynamic data)
+    const questions = {
+      morningPages: ["How do you feel about the day ahead?", "What are you looking forward to?"],
+      futureSelf: ["What behavior are you currently working on?", "What are your daily affirmations?"],
+      morningProductivity: ["What's one action you can take today?", "What's the most important thing you must do?"],
+      gratitude: ["What are you grateful for today?"],
+      manifestation: ["By when will you achieve your goal?", "How will you get there?"]
+    };
 
-// Function to format entries for downloads
-function formatEntries() {
-  return journalEntries.map(entry => `## ${entry.question}\n${entry.answer}\n\n`).join('');
-}
+    let selectedQuestions = [];
+    let currentQuestionIndex = 0;
 
-// Download as Markdown
-document.getElementById('download-markdown-button').addEventListener('click', () => {
-  const content = formatEntries();
-  const blob = new Blob([content], { type: 'text/markdown' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = 'journal.md'; // Name of the Markdown file
-  link.click();
-});
+    // Handling "Start Journaling" button functionality
+    document.getElementById('start-button').addEventListener('click', function() {
+      const selectedBoxes = document.querySelectorAll('input[name="approach"]:checked');
+      if (selectedBoxes.length === 0) {
+        alert("Please select at least one approach to start journaling.");
+        return;
+      }
 
-// Download as Text
-document.getElementById('download-text-button').addEventListener('click', () => {
-  const content = formatEntries();
-  const blob = new Blob([content], { type: 'text/plain' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = 'journal.txt'; // Name of the Text file
-  link.click();
-});
+      // Hide the form and show the question container
+      document.getElementById('journal-form').style.display = 'none';
+      document.getElementById('question-container').style.display = 'block';
 
-// Download ENEX file as one note
-document.getElementById('download-enex-button').addEventListener('click', () => {
-  const enexHeader = '<?xml version="1.0" encoding="UTF-8"?>\n<en-export export-date="' + new Date().toISOString() + '" application="A Good Start">\n';
-  const enexFooter = '</en-export>';
-  const enexNote = `
-    <note>
-      <title>Journal Entry</title>
-      <content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
-        <en-note>${journalEntries.map(entry => `<div>## ${entry.question}</div><div>${entry.answer}</div><br>`).join('')}
-        </en-note>
-      ]]></content>
-      <created>${new Date().toISOString()}</created>
-    </note>
-  `;
-  const enexContent = enexHeader + enexNote + enexFooter;
-  const blob = new Blob([enexContent], { type: 'application/xml' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = 'journal.enex'; // Name of the ENEX file
-  link.click();
-});
+      // Collect questions based on selected checkboxes
+      selectedQuestions = [];
+      selectedBoxes.forEach(box => {
+        selectedQuestions = selectedQuestions.concat(questions[box.value]);
+      });
 
-// Trigger email client with journal entries
-document.getElementById('email-button').addEventListener('click', () => {
-  const content = formatEntries();
-  const subject = encodeURIComponent("Your Journal Entries");
-  const body = encodeURIComponent(content);
-  const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+      // Set the first question
+      displayQuestion();
+    });
 
-  // Create a temporary link element to trigger the mail client
-  const link = document.createElement('a');
-  link.href = mailtoLink;
-  link.click();
-});
+    // Display the current question
+    function displayQuestion() {
+      if (currentQuestionIndex < selectedQuestions.length) {
+        document.getElementById('question').textContent = selectedQuestions[currentQuestionIndex];
+        document.getElementById('answer').value = ''; // Clear the previous answer
+      } else {
+        document.getElementById('question-container').style.display = 'none';
+        document.getElementById('finish-container').style.display = 'block';
+      }
+    }
+
+    // Handling "Next" button to show next question
+    document.getElementById('next-button').addEventListener('click', function() {
+      const answer = document.getElementById('answer').value;
+      if (answer.trim() === '') {
+        alert("Please provide an answer before proceeding.");
+        return;
+      }
+
+      // Store the answer (you could save it or send it later)
+      // Move to the next question
+      currentQuestionIndex++;
+      displayQuestion();
+    });
+  </script>
+
+</body>
+</html>
