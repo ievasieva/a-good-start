@@ -37,8 +37,8 @@
 
   <!-- Collapse box for more information -->
   <div class="border border-gray-300 bg-white rounded-lg p-4 mx-4">
-    <button class="collapse-button text-xl font-medium arrow focus:outline-none">Find out more about the different prompts</button>
-    <div class="collapse-content mt-4 text-left text-lg">
+    <button id="collapse-button" class="text-xl font-medium arrow focus:outline-none">Find out more about the different prompts</button>
+    <div id="collapse-content" class="collapse-content mt-4 text-left text-lg">
       <p><strong>Morning Pages:</strong> Helps you reflect on how you feel about the day ahead and what you're looking forward to.</p>
       <p class="mt-2"><strong>Future Self:</strong> Prompts to reflect on the person you are becoming and how you can achieve your goals.</p>
       <p class="mt-2"><strong>Morning Productivity:</strong> Focuses on prioritizing your day, setting goals, and identifying barriers to productivity.</p>
@@ -91,10 +91,27 @@
   </div>
 
   <script>
-    // Toggle collapse box
-    document.querySelector('.collapse-button').addEventListener('click', function() {
+    // Toggle collapse box functionality
+    document.getElementById('collapse-button').addEventListener('click', function() {
       this.classList.toggle('active');
-      this.nextElementSibling.classList.toggle('active');
+      document.getElementById('collapse-content').classList.toggle('active');
+    });
+
+    // Handling "Start Journaling" button functionality
+    document.getElementById('start-button').addEventListener('click', function() {
+      const selectedBoxes = document.querySelectorAll('input[name="approach"]:checked');
+      if (selectedBoxes.length === 0) {
+        alert("Please select at least one approach to start journaling.");
+        return;
+      }
+
+      // Hide the form and show the question container
+      document.getElementById('journal-form').style.display = 'none';
+      document.getElementById('question-container').style.display = 'block';
+
+      // Set the first question
+      const firstQuestion = selectedBoxes[0].nextElementSibling.textContent;
+      document.getElementById('question').textContent = firstQuestion;
     });
   </script>
 
