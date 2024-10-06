@@ -11,25 +11,27 @@
   </script>
 </head>
 <body class="bg-base-200">
-  <div class="container mx-auto p-4 max-w-xl text-center space-y-6">
-    
+  <div class="max-w-2xl mx-auto py-10 px-4 space-y-8">
+
     <!-- Title and Subtitle -->
-    <h1 class="text-4xl font-bold">A Good Start</h1>
-    <p class="text-xl text-gray-600">Your daily journaling helper</p>
+    <div class="text-center">
+      <h1 class="text-5xl font-bold">A Good Start</h1>
+      <p class="text-2xl text-gray-600 mt-2">Your daily journaling helper</p>
+    </div>
 
     <!-- How Does It Work Section -->
-    <div class="text-left">
-      <h2 class="text-lg font-bold">How does it work?</h2>
-      <p class="mt-2">Each set of prompts offered below consist of 2 to 5 questions. Choose what you feel like. Enter text in the boxes. Send a summary to your email, or to your notes, or download in the format you want.</p>
+    <div class="text-center">
+      <h2 class="text-xl font-bold">How does it work?</h2>
+      <p class="mt-2">Each set of prompts offered below consists of 2 to 5 questions. Choose what you feel like. Enter text in the boxes. Send a summary to your email, or to your notes, or download in the format you want.</p>
     </div>
 
     <!-- Collapsible Info Section -->
-    <div class="collapse w-full">
+    <div class="collapse">
       <input type="checkbox" class="peer" />
       <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
         Find out more about the different prompts
       </div>
-      <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+      <div class="collapse-content mt-2">
         <p class="mt-2"><strong>Morning Pages</strong>: A freewriting exercise to clear your mind at the start of the day.</p>
         <p><strong>Future Self</strong>: Prompts to help you envision the person you want to become.</p>
         <p><strong>Morning Productivity</strong>: Questions designed to kickstart your day with focus and purpose.</p>
@@ -40,31 +42,18 @@
 
     <!-- Form for Selecting Journaling Prompts -->
     <form id="journal-form" class="text-left space-y-4">
-      <label class="block">
-        <input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary" />
-        Morning Pages
-      </label>
-      <label class="block">
-        <input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary" />
-        Future Self
-      </label>
-      <label class="block">
-        <input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary" />
-        Morning Productivity
-      </label>
-      <label class="block">
-        <input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary" />
-        Gratitude
-      </label>
-      <label class="block">
-        <input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary" />
-        Manifestation
-      </label>
+      <div class="grid grid-cols-1 gap-4">
+        <label><input type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-primary" /> Morning Pages</label>
+        <label><input type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-primary" /> Future Self</label>
+        <label><input type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-primary" /> Morning Productivity</label>
+        <label><input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary" /> Gratitude</label>
+        <label><input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary" /> Manifestation</label>
+      </div>
       <button type="button" id="start-button" class="btn btn-primary w-full mt-4">Start Journaling</button>
     </form>
 
     <!-- Question and Answer Section -->
-    <div id="question-container" class="mt-6 text-left" style="display: none;">
+    <div id="question-container" class="mt-6" style="display: none;">
       <p id="question" class="text-lg font-semibold"></p>
       <textarea id="answer" class="textarea textarea-bordered h-32 w-full mt-4" placeholder="Write your answer here..."></textarea>
       <button id="next-button" class="btn btn-secondary w-full mt-4">Next</button>
