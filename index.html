@@ -22,7 +22,7 @@
         <label class="block"><input type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-primary mr-2"> Gratitude</label>
         <label class="block"><input type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-primary mr-2"> Manifestation</label>
       </div>
-        <button id="next-button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Next</button>
+      <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
     </form>
   </div>
 
@@ -30,30 +30,18 @@
   <div id="question-container" style="display: none;" class="mt-6 space-y-4">
     <p id="question" class="text-xl font-semibold"></p>
     <textarea id="answer" class="textarea textarea-bordered h-32 w-full" placeholder="Write your answer here..."></textarea>
-    <button id="next-button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Next</button>
+    <button id="next-button" class="btn btn-secondary mt-4">Next</button>
   </div>
-
-<!-- Completion page -->
-  <div id="finish-container" style="display: none;" class="mt-6 space-y-4 text-center">
-    <h2 class="text-3xl font-bold mb-4">You're Done!</h2>
-    
-    <!-- Centered buttons in separate rows -->
-    <div class="space-y-4">
-      <button id="download-markdown-button" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-64 mx-auto">Download as Markdown</button>
-      <button id="download-enex-button" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-64 mx-auto">Download as ENEX</button>
-      <button id="download-text-button" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-64 mx-auto">Download as Text</button>
-      <button id="email-button" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-64 mx-auto">Send to Email</button>
-    </div>
 
   <!-- Completion page -->
   <div id="finish-container" style="display: none;" class="mt-6 space-y-4">
     <h2 class="text-3xl font-bold mb-4">You're Done!</h2>
     <button id="download-markdown-button" class="btn btn-accent mb-2">Download as Markdown</button>
-  </br>
     <button id="download-enex-button" class="btn btn-accent mb-2">Download as ENEX</button>
     <button id="download-text-button" class="btn btn-accent mb-2">Download as Text</button>
     <button id="email-button" class="btn btn-accent mb-2">Send to Email</button>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>
