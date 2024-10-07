@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Good Start - Journal App</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/flowbite@1.5.0/dist/flowbite.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css" rel="stylesheet">
 </head>
-<body class="bg-pastel-light text-center">
+<body class="bg-base-100 text-center">
 
   <!-- Instruction page (first page) -->
   <div id="instruction-page" class="mb-8">
@@ -17,48 +16,57 @@
 
     <form id="journal-form" class="space-y-4">
       <div class="form-control space-y-4">
-        <div class="flex-container accent-1">
-          <input id="bordered-checkbox-1" type="checkbox" name="approach" value="morningPages" class="checkbox-custom">
-          <label for="bordered-checkbox-1" class="label-custom">Morning Pages</label>
+        <div class="form-control">
+          <label class="cursor-pointer label">
+            <span class="label-text">Morning Pages</span>
+            <input id="bordered-checkbox-1" type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-accent">
+          </label>
         </div>
-        <div class="flex-container accent-2">
-          <input id="bordered-checkbox-2" type="checkbox" name="approach" value="futureSelf" class="checkbox-custom">
-          <label for="bordered-checkbox-2" class="label-custom">Future Self</label>
+        <div class="form-control">
+          <label class="cursor-pointer label">
+            <span class="label-text">Future Self</span>
+            <input id="bordered-checkbox-2" type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-accent">
+          </label>
         </div>
-        <div class="flex-container accent-3">
-          <input id="bordered-checkbox-3" type="checkbox" name="approach" value="morningProductivity" class="checkbox-custom">
-          <label for="bordered-checkbox-3" class="label-custom">Morning Productivity</label>
+        <div class="form-control">
+          <label class="cursor-pointer label">
+            <span class="label-text">Morning Productivity</span>
+            <input id="bordered-checkbox-3" type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-accent">
+          </label>
         </div>
-        <div class="flex-container accent-4">
-          <input id="bordered-checkbox-4" type="checkbox" name="approach" value="gratitude" class="checkbox-custom">
-          <label for="bordered-checkbox-4" class="label-custom">Gratitude</label>
+        <div class="form-control">
+          <label class="cursor-pointer label">
+            <span class="label-text">Gratitude</span>
+            <input id="bordered-checkbox-4" type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-accent">
+          </label>
         </div>
-        <div class="flex-container accent-5">
-          <input id="bordered-checkbox-5" type="checkbox" name="approach" value="manifestation" class="checkbox-custom">
-          <label for="bordered-checkbox-5" class="label-custom">Manifestation</label>
+        <div class="form-control">
+          <label class="cursor-pointer label">
+            <span class="label-text">Manifestation</span>
+            <input id="bordered-checkbox-5" type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-accent">
+          </label>
         </div>
       </div>
-      <button type="button" id="start-button" class="accent-1 button-custom">Start Journaling</button>
+      <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
     </form>
   </div>
 
   <!-- Question and answer container -->
   <div id="question-container" style="display: none;" class="mt-6 space-y-4">
     <p id="question" class="text-xl font-semibold"></p>
-    <textarea id="answer" class="textarea textarea-bordered h-32 w-full" placeholder="Write your answer here..."></textarea>
+    <textarea id="answer" class="textarea textarea-primary h-32 w-full" placeholder="Write your answer here..."></textarea>
     <button id="next-button" class="btn btn-secondary mt-4">Next</button>
   </div>
 
   <!-- Completion page -->
   <div id="finish-container" style="display: none;" class="mt-6 space-y-4">
     <h2 class="text-3xl font-bold mb-4">You're Done!</h2>
-    <button id="download-markdown-button" class="btn btn-accent mb-2">Download as Markdown</button>
-    <button id="download-enex-button" class="btn btn-accent mb-2">Download as ENEX</button>
-    <button id="download-text-button" class="btn btn-accent mb-2">Download as Text</button>
-    <button id="email-button" class="btn btn-accent mb-2">Send to Email</button>
+    <button id="download-markdown-button" class="btn btn-success mb-2">Download as Markdown</button>
+    <button id="download-enex-button" class="btn btn-warning mb-2">Download as ENEX</button>
+    <button id="download-text-button" class="btn btn-info mb-2">Download as Text</button>
+    <button id="email-button" class="btn btn-error mb-2">Send to Email</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.0/dist/flowbite.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
