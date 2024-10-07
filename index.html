@@ -6,6 +6,7 @@
   <title>A Good Start - Journal App</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css" rel="stylesheet">
+  <html data-theme="cupcake"></html>
 </head>
 <body class="bg-base-100 text-center">
 
@@ -16,32 +17,32 @@
 
     <form id="journal-form" class="space-y-4">
       <div class="form-control space-y-4">
-        <div class="form-control">
-          <label class="cursor-pointer label">
+        <div class="form-control flex items-center justify-center">
+          <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Morning Pages</span>
             <input id="bordered-checkbox-1" type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control">
-          <label class="cursor-pointer label">
+        <div class="form-control flex items-center justify-center">
+          <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Future Self</span>
             <input id="bordered-checkbox-2" type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control">
-          <label class="cursor-pointer label">
+        <div class="form-control flex items-center justify-center">
+          <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Morning Productivity</span>
             <input id="bordered-checkbox-3" type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control">
-          <label class="cursor-pointer label">
+        <div class="form-control flex items-center justify-center">
+          <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Gratitude</span>
             <input id="bordered-checkbox-4" type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control">
-          <label class="cursor-pointer label">
+        <div class="form-control flex items-center justify-center">
+          <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Manifestation</span>
             <input id="bordered-checkbox-5" type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-accent">
           </label>
@@ -54,7 +55,7 @@
   <!-- Question and answer container -->
   <div id="question-container" style="display: none;" class="mt-6 space-y-4">
     <p id="question" class="text-xl font-semibold"></p>
-    <textarea id="answer" class="textarea textarea-primary h-32 w-full" placeholder="Write your answer here..."></textarea>
+    <textarea id="answer" class="textarea textarea-primary h-32 w-full px-4" placeholder="Write your answer here..."></textarea>
     <button id="next-button" class="btn btn-secondary mt-4">Next</button>
   </div>
 
