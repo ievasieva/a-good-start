@@ -6,42 +6,61 @@
   <title>A Good Start - Journal App</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css" rel="stylesheet">
-  <html data-theme="cupcake"></html>
 </head>
 <body class="bg-base-100 text-center">
 
   <!-- Instruction page (first page) -->
   <div id="instruction-page" class="mb-8">
     <h1 class="text-4xl font-bold mb-4">A Good Start</h1>
+    <h1 class="text-3xl font-bold mb-3">No-bullshit daily journaling helper</h2>
+    
+    <!-- Collapsible component -->
+    <div class="collapse">
+      <input type="checkbox" class="peer" id="collapse-toggle" />
+        <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+          What's in each of the prompt sets?
+        </div>
+        <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+          <p>The prompts are a selection of my favourite approaches:</p>
+          <ul>
+            <li><strong>Morning pages:</strong> Helps you get out all the thoughts that are roaming around. It asks to reflect on how you feel about the day ahead and what you're looking forward to. This is a method created by Julie Cameron in her famous book on fostering creativity - <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank" class="link">The Artist's Way</a>.</li>
+            <li><strong>Future self:</strong> Supports incremental change of behaviours and emotional patterns. This list is created by Dr. Nicole LePera aka <a href="https://holisticpsych.s3-us-west-1.amazonaws.com/assets/Future_Self_Journal_2020.pdf" target="_blank" class="link">The Holistic Psychologist</a>.</li>
+            <li><strong>Morning Productivity:</strong> Helps you set priorities for your day and identify barriers to productivity.</li>
+            <li><strong>Gratitude:</strong> Encourages you to reflect on what you're grateful for today. Research shows that gratitude when cultivated as a practice or a trait enhances all aspects of <a href="https://escholarship.org/content/qt4zs2n2rw/qt4zs2n2rw_noSplash_9a4be7c0df0ba667a8d8eee09d0d016e.pdf#page=33" target="_blank" class="link">long-term well-being</a>, including perceived happiness, mental health, and even physical health.</li>
+            <li><strong>Manifestation:</strong> Helps to set clear intentions for living the life you want to live. Manifestation has gotten a bad rep as being a bit whimsical, and rightly so - in most forms, it is a pseudoscience. But <a href="https://www.psychologytoday.com/au/blog/click-here-for-happiness/202009/what-is-manifestation-science-based-ways-to-manifest" target="_blank" class="link">research</a> has repeatedly shown that believing you can do something makes it more likely that you'll succeed. And the opposite - believing in bad things tends to lead to them happening more often.</li>
+          </ul>
+        </div>
+      </div>
+
     <p class="text-xl mb-4">Choose Your Journaling Approach</p>
 
     <form id="journal-form" class="space-y-4">
       <div class="form-control space-y-4">
-        <div class="form-control flex items-center justify-center">
+        <div class="form-control flex justify-center">
           <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Morning Pages</span>
             <input id="bordered-checkbox-1" type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control flex items-center justify-center">
+        <div class="form-control flex justify-center">
           <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Future Self</span>
             <input id="bordered-checkbox-2" type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control flex items-center justify-center">
+        <div class="form-control flex justify-center">
           <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Morning Productivity</span>
             <input id="bordered-checkbox-3" type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control flex items-center justify-center">
+        <div class="form-control flex justify-center">
           <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Gratitude</span>
             <input id="bordered-checkbox-4" type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-accent">
           </label>
         </div>
-        <div class="form-control flex items-center justify-center">
+        <div class="form-control flex justify-center">
           <label class="cursor-pointer label flex items-center space-x-4">
             <span class="label-text">Manifestation</span>
             <input id="bordered-checkbox-5" type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-accent">
