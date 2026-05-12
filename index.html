@@ -3,88 +3,380 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Good Start - Journal App</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css" rel="stylesheet">
-  <html data-theme="cupcake"></html>
+  <title>A Good Start</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cormorant+Infant:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-base-100 text-center">
+<body>
 
-  <!-- Instruction page (first page) -->
-  <div id="instruction-page" class="mb-8">
-    <h1 class="text-4xl font-bold mb-4">A Good Start</h1>
-    <h1 class="text-3xl font-bold mb-3">No-bullshit daily journaling helper</h2>
+  <!-- Film grain overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
 
-    <!-- Collapsible component -->
-    <div tabindex="0" class="collapse collapse-plus border-base-300 bg-base-200 border p-10">
-      <div class="collapse-title text-xl font-medium">
-        What's in each of the prompt sets?
+  <!-- Ambient glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Background botanical left -->
+  <div class="bg-botanical left" aria-hidden="true">
+    <svg viewBox="0 0 280 700" xmlns="http://www.w3.org/2000/svg" width="280" height="700">
+      <g transform="translate(90, 160)" opacity="0.16" stroke="#C4A578" stroke-width="0.6" fill="none">
+        <circle cx="0" cy="0" r="13"/>
+        <ellipse cx="0" cy="-24" rx="6" ry="20"/>
+        <ellipse cx="0" cy="24" rx="6" ry="20"/>
+        <ellipse cx="-24" cy="0" rx="20" ry="6"/>
+        <ellipse cx="24" cy="0" rx="20" ry="6"/>
+        <ellipse cx="-17" cy="-17" rx="6" ry="20" transform="rotate(-45 -17 -17)"/>
+        <ellipse cx="17" cy="17" rx="6" ry="20" transform="rotate(-45 17 17)"/>
+        <ellipse cx="17" cy="-17" rx="6" ry="20" transform="rotate(45 17 -17)"/>
+        <ellipse cx="-17" cy="17" rx="6" ry="20" transform="rotate(45 -17 17)"/>
+        <line x1="0" y1="-48" x2="0" y2="-140"/>
+        <line x1="0" y1="48" x2="0" y2="90"/>
+        <circle cx="-8" cy="-120" r="2"/>
+        <circle cx="8" cy="-110" r="1.5"/>
+      </g>
+      <g transform="translate(180, 520)" opacity="0.1" stroke="#B87D72" stroke-width="0.5" fill="none">
+        <circle cx="0" cy="0" r="8"/>
+        <ellipse cx="0" cy="-16" rx="4" ry="13"/>
+        <ellipse cx="0" cy="16" rx="4" ry="13"/>
+        <ellipse cx="-16" cy="0" rx="13" ry="4"/>
+        <ellipse cx="16" cy="0" rx="13" ry="4"/>
+        <line x1="0" y1="-32" x2="0" y2="-80"/>
+        <line x1="0" y1="32" x2="0" y2="60"/>
+      </g>
+      <line x1="220" y1="0" x2="220" y2="700" stroke="#C4A578" stroke-width="0.25" opacity="0.08"/>
+      <circle cx="220" cy="175" r="1.5" fill="#C4A578" opacity="0.18"/>
+      <circle cx="220" cy="350" r="1.5" fill="#C4A578" opacity="0.18"/>
+      <circle cx="220" cy="525" r="1.5" fill="#C4A578" opacity="0.18"/>
+      <circle cx="60" cy="400" r="1" fill="#C4A578" opacity="0.12"/>
+      <circle cx="75" cy="415" r="0.8" fill="#C4A578" opacity="0.1"/>
+      <circle cx="55" cy="430" r="0.6" fill="#C4A578" opacity="0.08"/>
+    </svg>
+  </div>
+
+  <!-- Background botanical right -->
+  <div class="bg-botanical right" aria-hidden="true">
+    <svg viewBox="0 0 280 700" xmlns="http://www.w3.org/2000/svg" width="280" height="700">
+      <g transform="translate(190, 320)" opacity="0.1" stroke="#6B8B6E" stroke-width="0.55" fill="none">
+        <circle cx="0" cy="0" r="10"/>
+        <ellipse cx="0" cy="-20" rx="5" ry="16"/>
+        <ellipse cx="0" cy="20" rx="5" ry="16"/>
+        <ellipse cx="-20" cy="0" rx="16" ry="5"/>
+        <ellipse cx="20" cy="0" rx="16" ry="5"/>
+        <ellipse cx="-14" cy="-14" rx="5" ry="16" transform="rotate(-45 -14 -14)"/>
+        <ellipse cx="14" cy="14" rx="5" ry="16" transform="rotate(-45 14 14)"/>
+        <line x1="0" y1="-38" x2="0" y2="-110"/>
+        <line x1="0" y1="38" x2="0" y2="70"/>
+      </g>
+      <g transform="translate(70, 120)" opacity="0.08" stroke="#C4A578" stroke-width="0.4" fill="none">
+        <circle cx="0" cy="0" r="6"/>
+        <ellipse cx="0" cy="-12" rx="3" ry="9"/>
+        <ellipse cx="0" cy="12" rx="3" ry="9"/>
+        <ellipse cx="-12" cy="0" rx="9" ry="3"/>
+        <ellipse cx="12" cy="0" rx="9" ry="3"/>
+        <line x1="0" y1="-24" x2="0" y2="-60"/>
+      </g>
+      <line x1="60" y1="0" x2="60" y2="700" stroke="#6B8B6E" stroke-width="0.2" opacity="0.07"/>
+      <circle cx="60" cy="233" r="1.2" fill="#6B8B6E" opacity="0.14"/>
+      <circle cx="60" cy="467" r="1.2" fill="#6B8B6E" opacity="0.14"/>
+      <circle cx="200" cy="580" r="1" fill="#B87D72" opacity="0.1"/>
+      <circle cx="215" cy="595" r="0.7" fill="#B87D72" opacity="0.08"/>
+    </svg>
+  </div>
+
+  <!-- ==================== PAGE 1: LANDING ==================== -->
+  <div id="instruction-page" class="page">
+
+    <header class="landing-header">
+      <div class="eyebrow-text">— est. today —</div>
+
+      <div class="title-wrapper">
+        <h1 class="main-title">
+          <span class="title-ghost" aria-hidden="true">A Good Start</span>
+          A Good Start
+        </h1>
       </div>
-      <div class="collapse-content">
-        <p>The prompts are a selection of my favourite approaches:</p>
-        <ul>
-          <li><strong>Morning pages:</strong> Helps you get out all the thoughts that are roaming around. It asks to reflect on how you feel about the day ahead and what you're looking forward to. This is a method created by Julie Cameron in her famous book on fostering creativity - <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank" class="link">The Artist's Way</a>.</li>
-          <li><strong>Future self:</strong> Supports incremental change of behaviours and emotional patterns. This list is created by Dr. Nicole LePera aka <a href="https://holisticpsych.s3-us-west-1.amazonaws.com/assets/Future_Self_Journal_2020.pdf" target="_blank" class="link">The Holistic Psychologist</a>.</li>
-          <li><strong>Morning Productivity:</strong> Helps you set priorities for your day and identify barriers to productivity.</li>
-          <li><strong>Gratitude:</strong> Encourages you to reflect on what you're grateful for today. Research shows that gratitude when cultivated as a practice or a trait enhances all aspects of <a href="https://escholarship.org/content/qt4zs2n2rw/qt4zs2n2rw_noSplash_9a4be7c0df0ba667a8d8eee09d0d016e.pdf#page=33" target="_blank" class="link">long-term well-being</a>, including perceived happiness, mental health, and even physical health.</li>
-          <li><strong>Manifestation:</strong> Helps to set clear intentions for living the life you want to live. Manifestation has gotten a bad rep as being a bit whimsical, and rightly so - in most forms, it is a pseudoscience. But <a href="https://www.psychologytoday.com/au/blog/click-here-for-happiness/202009/what-is-manifestation-science-based-ways-to-manifest" target="_blank" class="link">research</a> has repeatedly shown that believing you can do something makes it more likely that you'll succeed. And the opposite - believing in bad things tends to lead to them happening more often.</li>
-        </ul>
+
+      <p class="subtitle">no-bullshit daily journaling</p>
+
+      <div class="title-divider">
+        <span></span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5" cy="5" r="1.8" fill="#C4A578"/>
+          <circle cx="5" cy="5" r="4.2" stroke="#C4A578" stroke-width="0.5"/>
+        </svg>
+        <span></span>
+      </div>
+    </header>
+
+    <!-- Info accordion -->
+    <div class="accordion-wrapper">
+      <details class="accordion">
+        <summary class="accordion-title">
+          <span>What's in each prompt set?</span>
+          <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          </svg>
+        </summary>
+        <div class="accordion-content">
+          <div class="approach-info">
+            <h4>Morning Pages</h4>
+            <p>Clear the mental clutter. Created by Julia Cameron in <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank">The Artist's Way</a>.</p>
+          </div>
+          <div class="approach-info">
+            <h4>Future Self</h4>
+            <p>Incremental change of behaviours and emotional patterns. By Dr. Nicole LePera, <a href="https://holisticpsych.s3-us-west-1.amazonaws.com/assets/Future_Self_Journal_2020.pdf" target="_blank">The Holistic Psychologist</a>.</p>
+          </div>
+          <div class="approach-info">
+            <h4>Morning Productivity</h4>
+            <p>Set priorities and identify barriers before the day begins.</p>
+          </div>
+          <div class="approach-info">
+            <h4>Gratitude</h4>
+            <p>Reflect on what you're grateful for. <a href="https://escholarship.org/content/qt4zs2n2rw/qt4zs2n2rw_noSplash_9a4be7c0df0ba667a8d8eee09d0d016e.pdf#page=33" target="_blank">Research</a> shows it enhances long-term well-being.</p>
+          </div>
+          <div class="approach-info">
+            <h4>Manifestation</h4>
+            <p>Set clear intentions. <a href="https://www.psychologytoday.com/au/blog/click-here-for-happiness/202009/what-is-manifestation-science-based-ways-to-manifest" target="_blank">Research</a> shows believing you can succeed makes it more likely.</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- Approach selection -->
+    <div class="section-label">choose your practice</div>
+
+    <form id="journal-form">
+      <div class="approaches-grid">
+
+        <label class="approach-card">
+          <input type="checkbox" name="approach" value="morningPages">
+          <div class="approach-card-inner">
+            <span class="approach-number">01</span>
+            <span class="approach-name">Morning Pages</span>
+            <span class="approach-check">✦</span>
+          </div>
+        </label>
+
+        <label class="approach-card">
+          <input type="checkbox" name="approach" value="futureSelf">
+          <div class="approach-card-inner">
+            <span class="approach-number">02</span>
+            <span class="approach-name">Future Self</span>
+            <span class="approach-check">✦</span>
+          </div>
+        </label>
+
+        <label class="approach-card">
+          <input type="checkbox" name="approach" value="morningProductivity">
+          <div class="approach-card-inner">
+            <span class="approach-number">03</span>
+            <span class="approach-name">Morning Productivity</span>
+            <span class="approach-check">✦</span>
+          </div>
+        </label>
+
+        <label class="approach-card">
+          <input type="checkbox" name="approach" value="gratitude">
+          <div class="approach-card-inner">
+            <span class="approach-number">04</span>
+            <span class="approach-name">Gratitude</span>
+            <span class="approach-check">✦</span>
+          </div>
+        </label>
+
+        <label class="approach-card">
+          <input type="checkbox" name="approach" value="manifestation">
+          <div class="approach-card-inner">
+            <span class="approach-number">05</span>
+            <span class="approach-name">Manifestation</span>
+            <span class="approach-check">✦</span>
+          </div>
+        </label>
+
+      </div>
+
+      <button type="button" id="start-button" class="btn-primary">
+        <span>Begin</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+
+    <!-- Notion settings link -->
+    <div class="notion-settings-toggle">
+      <button id="notion-settings-btn" class="text-link">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+          <rect x="1.5" y="1.5" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M4 5h5M4 7h5M4 9h3" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+        </svg>
+        Configure Notion
+      </button>
+    </div>
+
+    <div id="notion-settings-panel" class="notion-panel hidden">
+      <div class="notion-panel-inner">
+        <h3 class="notion-panel-title">Notion Integration</h3>
+        <p class="notion-panel-desc">
+          Create an internal integration at <a href="https://www.notion.so/my-integrations" target="_blank">notion.so/my-integrations</a>, then share your target page with it. Paste the credentials below.
+        </p>
+        <div class="form-field">
+          <label class="field-label" for="notion-token">Integration Token</label>
+          <input type="password" id="notion-token" class="field-input" placeholder="secret_xxxxxxxxxxxxxxxx" autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label class="field-label" for="notion-page-id">Parent Page ID</label>
+          <input type="text" id="notion-page-id" class="field-input" placeholder="32-character page ID from URL" autocomplete="off">
+          <span class="field-hint">Found in the page URL after the last <code>/</code> — the part before any <code>?</code></span>
+        </div>
+        <button id="save-notion-settings" class="btn-secondary">Save Settings</button>
       </div>
     </div>
 
-    <p class="text-xl mb-4">Choose Your Journaling Approach</p>
+  </div>
 
-    <form id="journal-form" class="space-y-4 p-20">
-      <div class="form-control space-y-4">
-        <div class="form-control flex justify-center">
-          <label class="cursor-pointer label flex items-center space-x-4">
-            <span class="label-text">Morning Pages</span>
-            <input id="bordered-checkbox-1" type="checkbox" name="approach" value="morningPages" class="checkbox checkbox-accent">
-          </label>
+  <!-- ==================== PAGE 2: QUESTIONS ==================== -->
+  <div id="question-container" class="page hidden">
+
+    <div class="question-layout">
+
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
         </div>
-        <div class="form-control flex justify-center">
-          <label class="cursor-pointer label flex items-center space-x-4">
-            <span class="label-text">Future Self</span>
-            <input id="bordered-checkbox-2" type="checkbox" name="approach" value="futureSelf" class="checkbox checkbox-accent">
-          </label>
-        </div>
-        <div class="form-control flex justify-center">
-          <label class="cursor-pointer label flex items-center space-x-4">
-            <span class="label-text">Morning Productivity</span>
-            <input id="bordered-checkbox-3" type="checkbox" name="approach" value="morningProductivity" class="checkbox checkbox-accent">
-          </label>
-        </div>
-        <div class="form-control flex justify-center">
-          <label class="cursor-pointer label flex items-center space-x-4">
-            <span class="label-text">Gratitude</span>
-            <input id="bordered-checkbox-4" type="checkbox" name="approach" value="gratitude" class="checkbox checkbox-accent">
-          </label>
-        </div>
-        <div class="form-control flex justify-center">
-          <label class="cursor-pointer label flex items-center space-x-4">
-            <span class="label-text">Manifestation</span>
-            <input id="bordered-checkbox-5" type="checkbox" name="approach" value="manifestation" class="checkbox checkbox-accent">
-          </label>
+        <div id="progress-text" class="progress-text">1 / 5</div>
+      </div>
+
+      <div class="question-wrapper">
+        <p id="question" class="question-text"></p>
+      </div>
+
+      <div class="answer-wrapper">
+        <textarea
+          id="answer"
+          class="answer-textarea"
+          placeholder="write freely..."
+          rows="7"
+        ></textarea>
+        <div class="textarea-line"></div>
+      </div>
+
+      <div class="question-nav">
+        <button id="skip-button" class="btn-ghost">skip</button>
+        <button id="next-button" class="btn-primary">
+          <span id="next-btn-text">Continue</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Decorative side botanical -->
+    <div class="question-botanical" aria-hidden="true">
+      <svg viewBox="0 0 60 180" width="30" height="90" fill="none" stroke="#C4A578" stroke-width="0.5" opacity="0.22">
+        <line x1="30" y1="0" x2="30" y2="180"/>
+        <circle cx="30" cy="90" r="10"/>
+        <ellipse cx="30" cy="72" rx="4" ry="16"/>
+        <ellipse cx="30" cy="108" rx="4" ry="16"/>
+        <ellipse cx="12" cy="90" rx="16" ry="4"/>
+        <ellipse cx="48" cy="90" rx="16" ry="4"/>
+        <circle cx="30" cy="28" r="1.5"/>
+        <circle cx="30" cy="152" r="1.5"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- ==================== PAGE 3: COMPLETION ==================== -->
+  <div id="finish-container" class="page hidden">
+
+    <div class="completion-layout">
+
+      <div class="completion-header">
+        <div class="eyebrow-text">— session complete —</div>
+        <h2 class="completion-title">You showed up.</h2>
+        <p class="completion-subtitle">That's the whole practice.</p>
+        <div class="title-divider">
+          <span></span>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <circle cx="5" cy="5" r="1.8" fill="#C4A578"/>
+            <circle cx="5" cy="5" r="4.2" stroke="#C4A578" stroke-width="0.5"/>
+          </svg>
+          <span></span>
         </div>
       </div>
-      <button type="button" id="start-button" class="btn btn-primary mt-6">Start Journaling</button>
-    </form>
+
+      <div class="section-label">save your entry</div>
+
+      <div class="save-options">
+
+        <!-- Notion card (prominent) -->
+        <div class="save-card notion-card">
+          <div class="save-card-header">
+            <svg class="save-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="2.5" y="2.5" width="13" height="13" rx="2" stroke="currentColor" stroke-width="0.8"/>
+              <path d="M6 6h6M6 9h6M6 12h4" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+            </svg>
+            <span class="save-label">Notion</span>
+          </div>
+          <p class="save-description">Copy your entry as Notion-ready markdown, or send it directly via your integration.</p>
+          <div class="save-actions">
+            <button id="copy-for-notion-button" class="btn-primary">Copy for Notion</button>
+            <button id="send-to-notion-button" class="btn-secondary">Send via API</button>
+          </div>
+          <div id="notion-copy-success" class="status-msg success hidden">
+            Copied. Open Notion, create or enter a page, and press <kbd>Ctrl+V</kbd> / <kbd>⌘V</kbd> to paste.
+          </div>
+          <div id="notion-api-status" class="status-msg hidden"></div>
+        </div>
+
+        <!-- Other export options -->
+        <div class="save-row">
+          <button id="download-markdown-button" class="btn-outline">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1h12v12H1V1zm2.5 3.5v4l2-1.5 2 1.5v-4" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Markdown
+          </button>
+          <button id="download-text-button" class="btn-outline">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <rect x="1.5" y="1.5" width="11" height="11" rx="1" stroke="currentColor" stroke-width="0.7"/>
+              <path d="M4 5h6M4 7h6M4 9h4" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+            </svg>
+            Plain Text
+          </button>
+          <button id="download-enex-button" class="btn-outline">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <ellipse cx="7" cy="7" rx="5.5" ry="5.5" stroke="currentColor" stroke-width="0.7"/>
+              <path d="M4.5 7h5M7 4.5v5" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+            </svg>
+            Evernote
+          </button>
+          <button id="email-button" class="btn-outline">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <rect x="1.5" y="3.5" width="11" height="8" rx="1" stroke="currentColor" stroke-width="0.7"/>
+              <path d="M1.5 5l5.5 4 5.5-4" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+            </svg>
+            Email
+          </button>
+        </div>
+
+      </div>
+
+      <button id="restart-button" class="btn-ghost restart-btn">begin again ↺</button>
+
+    </div>
   </div>
 
-  <!-- Question and answer container -->
-  <div id="question-container" style="display: none;" class="mt-6 space-y-4">
-    <p id="question" class="text-xl font-semibold"></p>
-    <textarea id="answer" class="textarea textarea-primary h-32 w-full px-4" placeholder="Write your answer here..."></textarea>
-    <button id="next-button" class="btn btn-secondary mt-4">Next</button>
-  </div>
-
-  <!-- Completion page -->
-  <div id="finish-container" style="display: none;" class="mt-6 space-y-4">
-    <h2 class="text-3xl font-bold mb-4">You're Done!</h2>
-    <button id="download-markdown-button" class="btn btn-success mb-2">Download as Markdown</button>
-    <button id="download-enex-button" class="btn btn-warning mb-2">Download as ENEX</button>
-    <button id="download-text-button" class="btn btn-info mb-2">Download as Text</button>
-    <button id="email-button" class="btn btn-error mb-2">Send to Email</button>
+  <!-- Notion setup reminder modal -->
+  <div id="notion-setup-reminder" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-inner">
+      <h3>Set Up Notion First</h3>
+      <p>Add your integration token and parent page ID from the home screen — look for "Configure Notion" below the Start button.</p>
+      <button id="close-reminder" class="btn-primary">Got it</button>
+    </div>
   </div>
 
   <script src="app.js"></script>
