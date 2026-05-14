@@ -7,21 +7,21 @@
 
 /* ---- Custom Properties ---- */
 :root {
-  --bg:         #0C0A08;
-  --bg-2:       #141210;
-  --bg-card:    #17140F;
-  --cream:      #EDE4D3;
-  --warm-white: #F5F0E8;
-  --gold:       #C4A578;
-  --gold-dim:   rgba(196, 165, 120, 0.28);
-  --gold-faint: rgba(196, 165, 120, 0.07);
-  --rose:       #B87D72;
-  --rose-dim:   rgba(184, 125, 114, 0.18);
-  --sage:       #6B8B6E;
-  --sage-dim:   rgba(107, 139, 110, 0.18);
-  --muted:      rgba(237, 228, 211, 0.42);
-  --subtle:     rgba(237, 228, 211, 0.12);
-  --very-faint: rgba(237, 228, 211, 0.05);
+  --bg:         #F5F0E8;
+  --bg-2:       #EDE8DF;
+  --bg-card:    #EAE4DA;
+  --cream:      #2C2420;
+  --warm-white: #1A1210;
+  --gold:       #8B6A3E;
+  --gold-dim:   rgba(139, 106, 62, 0.28);
+  --gold-faint: rgba(139, 106, 62, 0.06);
+  --rose:       #9B5C52;
+  --rose-dim:   rgba(155, 92, 82, 0.18);
+  --sage:       #4A6B4D;
+  --sage-dim:   rgba(74, 107, 77, 0.22);
+  --muted:      rgba(44, 36, 32, 0.55);
+  --subtle:     rgba(44, 36, 32, 0.14);
+  --very-faint: rgba(44, 36, 32, 0.04);
 
   --font: 'Cormorant Garamond', 'Georgia', serif;
   --font-alt: 'Cormorant Infant', 'Georgia', serif;
@@ -73,9 +73,9 @@ code {
   inset: 0;
   pointer-events: none;
   z-index: 998;
-  mix-blend-mode: overlay;
+  mix-blend-mode: multiply;
   opacity: 1;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.14'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 340px 340px;
 }
@@ -91,8 +91,8 @@ code {
   height: 80vh;
   border-radius: 50%;
   background: radial-gradient(ellipse at 60% 40%,
-    rgba(196, 165, 120, 0.035) 0%,
-    rgba(184, 125, 114, 0.02) 45%,
+    rgba(139, 106, 62, 0.06) 0%,
+    rgba(155, 92, 82, 0.03) 45%,
     transparent 72%
   );
 }
@@ -162,8 +162,8 @@ code {
   position: absolute;
   inset: 0;
   color: var(--rose);
-  opacity: 0.18;
-  mix-blend-mode: screen;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
   transform: translate(5px, 7px) skewX(-1.5deg);
   pointer-events: none;
   filter: blur(0.6px);
