@@ -1,29 +1,56 @@
 {
-  "morningPages": [
-    "What's on your mind at the moment? Where are your thoughts travelling towards?",
-    "How do you feel about the day ahead? Is there anything you're looking forward to?",
-    "What's inspiring you at the moment?"
-  ],
-  "futureSelf": [
-    "What behavior or pattern are you practicing (to change) today?",
-    "What are the daily affirmations or statements that will help you achieve this?",
-    "What are you grateful for that supports you on this journey?",
-    "The person I am becoming will experience more:",
-    "I have an opportunity to be my future self today when I:"
-  ],
-  "morningProductivity": [
-    "What's one thing that you absolutely must do today?",
-    "What are three smaller things that you should do that will make your life easier?",
-    "What's one action you can take today that'll push you closer to your personal goal?",
-    "Any barriers you face and their solutions if you can find some. How can you increase your chances of reaching your goals?"
-  ],
-  "gratitude": [
-    "What are you grateful for today?"
-  ],
-  "manifestation": [
-    "What do you want your life to be like?", 
-    "Why is this meaningful to you?",
-    "How will you realize your vision? By when?", 
-    "I believe in myself because___:"
-  ]
+  "en": {
+    "morningPages": [
+      "What's on your mind right now? Where are your thoughts travelling?",
+      "How do you feel about the day ahead? Is there anything you're looking forward to?",
+      "What's inspiring you at the moment?"
+    ],
+    "futureSelf": [
+      "What behaviour or pattern are you practising (to change) today?",
+      "What daily affirmations or statements will help you achieve this?",
+      "What are you grateful for that supports you on this journey?",
+      "The person I am becoming will experience more of:",
+      "I have an opportunity to be my future self today when I:"
+    ],
+    "morningProductivity": [
+      "What's the one thing you absolutely must do today?",
+      "What are three smaller things that would make your life easier?",
+      "What's one action you can take today that will bring you closer to your personal goal?",
+      "What barriers do you face, and what are their solutions? How can you increase your chances of reaching your goals?"
+    ],
+    "gratitude": [
+      "What are you grateful for today?"
+    ],
+    "affirmations": [
+      "The life I want to live looks and feels like this...",
+      "One thing I can do next to get closer to that..."
+    ]
+  },
+  "lv": {
+    "morningPages": [
+      "Kas šobrīd ir tavās domās? Kur tās klīst?",
+      "Kā tu jūties par priekšā esošo dienu? Vai ir kaut kas, ko gaidi ar nepacietību?",
+      "Kas šobrīd tevi iedvesmo?"
+    ],
+    "futureSelf": [
+      "Kādu uzvedību vai paradumu tu šodien praktizē, lai to mainītu?",
+      "Kādi ikdienas apliecinājumi vai teikumi palīdzēs tev to sasniegt?",
+      "Par ko tu esi pateicīgs/-a, kas tevi atbalsta šajā ceļā?",
+      "Persona, par kuru es kļūstu, piedzīvos vairāk no:",
+      "Man šodien ir iespēja būt savam nākotnes es, kad:"
+    ],
+    "morningProductivity": [
+      "Kāda ir viena lieta, ko šodien noteikti jādara?",
+      "Kādas trīs mazākas lietas atvieglotu tavu dzīvi?",
+      "Kāda viena darbība šodien tevi tuvinātu taviem personīgajiem mērķiem?",
+      "Kādi šķēršļi tev ir un kādi ir to risinājumi? Kā palielināt izredzes sasniegt savus mērķus?"
+    ],
+    "gratitude": [
+      "Par ko tu šodien esi pateicīgs/-a?"
+    ],
+    "affirmations": [
+      "Dzīve, kādu es gribu dzīvot, izskatās un jūtas šādi...",
+      "Viena lieta, ko varu darīt tālāk, lai tuvinātos tai..."
+    ]
+  }
 }

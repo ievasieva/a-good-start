@@ -847,3 +847,90 @@ kbd {
 @media (max-width: 400px) {
   .title-divider span { width: 36px; }
 }
+
+/* ---- Language Toggle ---- */
+.lang-toggle {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg);
+  border: 1px solid var(--subtle);
+  border-radius: var(--radius-sm);
+  padding: 3px 5px;
+  box-shadow: 0 1px 4px rgba(17, 24, 39, 0.06);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 3px 7px;
+  border-radius: 3px;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  line-height: 1;
+}
+.lang-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+.lang-btn:hover:not(.active) {
+  color: var(--text);
+}
+
+.lang-sep {
+  color: var(--subtle);
+  font-size: 11px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ---- Explainer Steps ---- */
+.explainer {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.steps-list {
+  list-style: none;
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.steps-list li {
+  counter-increment: steps;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.steps-list li::before {
+  content: counter(steps) ".";
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--primary);
+  padding-top: 2px;
+}
+
+/* ---- save-label-text (inside save-card-header) ---- */
+.save-label-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}

@@ -20,7 +20,7 @@
   <!-- Background botanical left -->
   <div class="bg-botanical left" aria-hidden="true">
     <svg viewBox="0 0 280 700" xmlns="http://www.w3.org/2000/svg" width="280" height="700">
-      <g transform="translate(90, 160)" opacity="0.16" stroke="#C4A578" stroke-width="0.6" fill="none">
+      <g transform="translate(90, 160)" opacity="0.16" stroke="#3B82F6" stroke-width="0.6" fill="none">
         <circle cx="0" cy="0" r="13"/>
         <ellipse cx="0" cy="-24" rx="6" ry="20"/>
         <ellipse cx="0" cy="24" rx="6" ry="20"/>
@@ -35,7 +35,7 @@
         <circle cx="-8" cy="-120" r="2"/>
         <circle cx="8" cy="-110" r="1.5"/>
       </g>
-      <g transform="translate(180, 520)" opacity="0.1" stroke="#B87D72" stroke-width="0.5" fill="none">
+      <g transform="translate(180, 520)" opacity="0.1" stroke="#8B5CF6" stroke-width="0.5" fill="none">
         <circle cx="0" cy="0" r="8"/>
         <ellipse cx="0" cy="-16" rx="4" ry="13"/>
         <ellipse cx="0" cy="16" rx="4" ry="13"/>
@@ -44,20 +44,17 @@
         <line x1="0" y1="-32" x2="0" y2="-80"/>
         <line x1="0" y1="32" x2="0" y2="60"/>
       </g>
-      <line x1="220" y1="0" x2="220" y2="700" stroke="#C4A578" stroke-width="0.25" opacity="0.08"/>
-      <circle cx="220" cy="175" r="1.5" fill="#C4A578" opacity="0.18"/>
-      <circle cx="220" cy="350" r="1.5" fill="#C4A578" opacity="0.18"/>
-      <circle cx="220" cy="525" r="1.5" fill="#C4A578" opacity="0.18"/>
-      <circle cx="60" cy="400" r="1" fill="#C4A578" opacity="0.12"/>
-      <circle cx="75" cy="415" r="0.8" fill="#C4A578" opacity="0.1"/>
-      <circle cx="55" cy="430" r="0.6" fill="#C4A578" opacity="0.08"/>
+      <line x1="220" y1="0" x2="220" y2="700" stroke="#3B82F6" stroke-width="0.25" opacity="0.08"/>
+      <circle cx="220" cy="175" r="1.5" fill="#3B82F6" opacity="0.15"/>
+      <circle cx="220" cy="350" r="1.5" fill="#3B82F6" opacity="0.15"/>
+      <circle cx="220" cy="525" r="1.5" fill="#3B82F6" opacity="0.15"/>
     </svg>
   </div>
 
   <!-- Background botanical right -->
   <div class="bg-botanical right" aria-hidden="true">
     <svg viewBox="0 0 280 700" xmlns="http://www.w3.org/2000/svg" width="280" height="700">
-      <g transform="translate(190, 320)" opacity="0.1" stroke="#6B8B6E" stroke-width="0.55" fill="none">
+      <g transform="translate(190, 320)" opacity="0.1" stroke="#8B5CF6" stroke-width="0.55" fill="none">
         <circle cx="0" cy="0" r="10"/>
         <ellipse cx="0" cy="-20" rx="5" ry="16"/>
         <ellipse cx="0" cy="20" rx="5" ry="16"/>
@@ -68,83 +65,116 @@
         <line x1="0" y1="-38" x2="0" y2="-110"/>
         <line x1="0" y1="38" x2="0" y2="70"/>
       </g>
-      <g transform="translate(70, 120)" opacity="0.08" stroke="#C4A578" stroke-width="0.4" fill="none">
-        <circle cx="0" cy="0" r="6"/>
-        <ellipse cx="0" cy="-12" rx="3" ry="9"/>
-        <ellipse cx="0" cy="12" rx="3" ry="9"/>
-        <ellipse cx="-12" cy="0" rx="9" ry="3"/>
-        <ellipse cx="12" cy="0" rx="9" ry="3"/>
-        <line x1="0" y1="-24" x2="0" y2="-60"/>
-      </g>
-      <line x1="60" y1="0" x2="60" y2="700" stroke="#6B8B6E" stroke-width="0.2" opacity="0.07"/>
-      <circle cx="60" cy="233" r="1.2" fill="#6B8B6E" opacity="0.14"/>
-      <circle cx="60" cy="467" r="1.2" fill="#6B8B6E" opacity="0.14"/>
-      <circle cx="200" cy="580" r="1" fill="#B87D72" opacity="0.1"/>
-      <circle cx="215" cy="595" r="0.7" fill="#B87D72" opacity="0.08"/>
+      <line x1="60" y1="0" x2="60" y2="700" stroke="#8B5CF6" stroke-width="0.2" opacity="0.07"/>
+      <circle cx="60" cy="233" r="1.2" fill="#8B5CF6" opacity="0.12"/>
+      <circle cx="60" cy="467" r="1.2" fill="#8B5CF6" opacity="0.12"/>
     </svg>
+  </div>
+
+  <!-- Language toggle -->
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <button class="lang-btn" data-lang="lv">LV</button>
   </div>
 
   <!-- ==================== PAGE 1: LANDING ==================== -->
   <div id="instruction-page" class="page">
 
     <header class="landing-header">
-      <div class="eyebrow-text">— est. today —</div>
-
+      <div class="eyebrow-text" data-i18n="eyebrow">— est. today —</div>
       <div class="title-wrapper">
         <h1 class="main-title">
           <span class="title-ghost" aria-hidden="true">A Good Start</span>
           A Good Start
         </h1>
       </div>
-
-      <p class="subtitle">no-bullshit daily journaling</p>
-
+      <p class="subtitle" data-i18n="subtitle">no-bullshit daily journaling</p>
       <div class="title-divider">
         <span></span>
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="5" cy="5" r="1.8" fill="#C4A578"/>
-          <circle cx="5" cy="5" r="4.2" stroke="#C4A578" stroke-width="0.5"/>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <circle cx="5" cy="5" r="1.8" fill="#3B82F6"/>
+          <circle cx="5" cy="5" r="4.2" stroke="#3B82F6" stroke-width="0.5"/>
         </svg>
         <span></span>
       </div>
     </header>
 
+    <!-- Quick explainer -->
+    <div class="explainer">
+      <ol class="steps-list">
+        <li data-i18n="step1">Choose a prompt set.</li>
+        <li data-i18n="step2">Answer the questions.</li>
+        <li data-i18n="step3">Save in your preferred way — this app doesn't store anything.</li>
+        <li data-i18n="step4">Come back another day.</li>
+      </ol>
+    </div>
+
     <!-- Info accordion -->
     <div class="accordion-wrapper">
       <details class="accordion">
         <summary class="accordion-title">
-          <span>What's in each prompt set?</span>
+          <span data-i18n="accordion-title">What's in each prompt set?</span>
           <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
           </svg>
         </summary>
         <div class="accordion-content">
-          <div class="approach-info">
-            <h4>Morning Pages</h4>
-            <p>Clear the mental clutter. Created by Julia Cameron in <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank">The Artist's Way</a>.</p>
+
+          <!-- English descriptions -->
+          <div data-lang-show="en">
+            <div class="approach-info">
+              <h4>Morning Pages</h4>
+              <p>Clear the mental clutter. Created by Julia Cameron in <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank">The Artist's Way</a>.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Future Self</h4>
+              <p>Supports incremental change of behaviours and emotional patterns. By Dr. Nicole LePera, <a href="https://holisticpsych.s3-us-west-1.amazonaws.com/assets/Future_Self_Journal_2020.pdf" target="_blank">The Holistic Psychologist</a>.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Morning Productivity</h4>
+              <p>Set priorities and identify barriers before the day begins.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Gratitude</h4>
+              <p>Reflect on what you're grateful for. <a href="https://escholarship.org/content/qt4zs2n2rw/qt4zs2n2rw_noSplash_9a4be7c0df0ba667a8d8eee09d0d016e.pdf#page=33" target="_blank">Research</a> shows gratitude enhances all aspects of long-term well-being.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Affirmations</h4>
+              <p>Set a clear intention for the life you want. <a href="https://www.psychologytoday.com/au/blog/click-here-for-happiness/202009/what-is-manifestation-science-based-ways-to-manifest" target="_blank">Research</a> shows that believing you can achieve something makes it more likely to happen.</p>
+            </div>
           </div>
-          <div class="approach-info">
-            <h4>Future Self</h4>
-            <p>Incremental change of behaviours and emotional patterns. By Dr. Nicole LePera, <a href="https://holisticpsych.s3-us-west-1.amazonaws.com/assets/Future_Self_Journal_2020.pdf" target="_blank">The Holistic Psychologist</a>.</p>
+
+          <!-- Latvian descriptions -->
+          <div data-lang-show="lv" class="hidden">
+            <div class="approach-info">
+              <h4>Rīta lapas</h4>
+              <p>Iztīri prātu. Izveidots no Džūlijas Kameronas grāmatas <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank">Mākslinieka ceļš</a>.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Nākotnes es</h4>
+              <p>Atbalsta pakāpenisku uzvedības un emocionālo modeļu maiņu. Autore Dr. Nicole LePera, <a href="https://holisticpsych.s3-us-west-1.amazonaws.com/assets/Future_Self_Journal_2020.pdf" target="_blank">Holistiskā psiholoģe</a>.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Rīta produktivitāte</h4>
+              <p>Nosakiet prioritātes un identificē šķēršļus pirms dienas sākuma.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Pateicība</h4>
+              <p>Pārdomā, par ko esi pateicīgs/-a. <a href="https://escholarship.org/content/qt4zs2n2rw/qt4zs2n2rw_noSplash_9a4be7c0df0ba667a8d8eee09d0d016e.pdf#page=33" target="_blank">Pētījumi</a> liecina, ka pateicība uzlabo visus ilgtermiņa labklājības aspektus.</p>
+            </div>
+            <div class="approach-info">
+              <h4>Apliecinājumi</h4>
+              <p>Nosaki skaidru nodomu dzīvei, kādu vēlies. <a href="https://www.psychologytoday.com/au/blog/click-here-for-happiness/202009/what-is-manifestation-science-based-ways-to-manifest" target="_blank">Pētījumi</a> liecina, ka ticēšana saviem mērķiem palielina to sasniegšanas iespējas.</p>
+            </div>
           </div>
-          <div class="approach-info">
-            <h4>Morning Productivity</h4>
-            <p>Set priorities and identify barriers before the day begins.</p>
-          </div>
-          <div class="approach-info">
-            <h4>Gratitude</h4>
-            <p>Reflect on what you're grateful for. <a href="https://escholarship.org/content/qt4zs2n2rw/qt4zs2n2rw_noSplash_9a4be7c0df0ba667a8d8eee09d0d016e.pdf#page=33" target="_blank">Research</a> shows it enhances long-term well-being.</p>
-          </div>
-          <div class="approach-info">
-            <h4>Manifestation</h4>
-            <p>Set clear intentions. <a href="https://www.psychologytoday.com/au/blog/click-here-for-happiness/202009/what-is-manifestation-science-based-ways-to-manifest" target="_blank">Research</a> shows believing you can succeed makes it more likely.</p>
-          </div>
+
         </div>
       </details>
     </div>
 
     <!-- Approach selection -->
-    <div class="section-label">choose your practice</div>
+    <div class="section-label" data-i18n="choose-practice">choose your practice</div>
 
     <form id="journal-form">
       <div class="approaches-grid">
@@ -153,7 +183,7 @@
           <input type="checkbox" name="approach" value="morningPages">
           <div class="approach-card-inner">
             <span class="approach-number">01</span>
-            <span class="approach-name">Morning Pages</span>
+            <span class="approach-name" data-i18n="approach-morningPages">Morning Pages</span>
             <span class="approach-check">✦</span>
           </div>
         </label>
@@ -162,7 +192,7 @@
           <input type="checkbox" name="approach" value="futureSelf">
           <div class="approach-card-inner">
             <span class="approach-number">02</span>
-            <span class="approach-name">Future Self</span>
+            <span class="approach-name" data-i18n="approach-futureSelf">Future Self</span>
             <span class="approach-check">✦</span>
           </div>
         </label>
@@ -171,7 +201,7 @@
           <input type="checkbox" name="approach" value="morningProductivity">
           <div class="approach-card-inner">
             <span class="approach-number">03</span>
-            <span class="approach-name">Morning Productivity</span>
+            <span class="approach-name" data-i18n="approach-morningProductivity">Morning Productivity</span>
             <span class="approach-check">✦</span>
           </div>
         </label>
@@ -180,16 +210,16 @@
           <input type="checkbox" name="approach" value="gratitude">
           <div class="approach-card-inner">
             <span class="approach-number">04</span>
-            <span class="approach-name">Gratitude</span>
+            <span class="approach-name" data-i18n="approach-gratitude">Gratitude</span>
             <span class="approach-check">✦</span>
           </div>
         </label>
 
         <label class="approach-card">
-          <input type="checkbox" name="approach" value="manifestation">
+          <input type="checkbox" name="approach" value="affirmations">
           <div class="approach-card-inner">
             <span class="approach-number">05</span>
-            <span class="approach-name">Manifestation</span>
+            <span class="approach-name" data-i18n="approach-affirmations">Affirmations</span>
             <span class="approach-check">✦</span>
           </div>
         </label>
@@ -197,42 +227,12 @@
       </div>
 
       <button type="button" id="start-button" class="btn-primary">
-        <span>Begin</span>
+        <span data-i18n="btn-begin">Begin</span>
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </form>
-
-    <!-- Notion settings link -->
-    <div class="notion-settings-toggle">
-      <button id="notion-settings-btn" class="text-link">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-          <rect x="1.5" y="1.5" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="0.8"/>
-          <path d="M4 5h5M4 7h5M4 9h3" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
-        </svg>
-        Configure Notion
-      </button>
-    </div>
-
-    <div id="notion-settings-panel" class="notion-panel hidden">
-      <div class="notion-panel-inner">
-        <h3 class="notion-panel-title">Notion Integration</h3>
-        <p class="notion-panel-desc">
-          Create an internal integration at <a href="https://www.notion.so/my-integrations" target="_blank">notion.so/my-integrations</a>, then share your target page with it. Paste the credentials below.
-        </p>
-        <div class="form-field">
-          <label class="field-label" for="notion-token">Integration Token</label>
-          <input type="password" id="notion-token" class="field-input" placeholder="secret_xxxxxxxxxxxxxxxx" autocomplete="off">
-        </div>
-        <div class="form-field">
-          <label class="field-label" for="notion-page-id">Parent Page ID</label>
-          <input type="text" id="notion-page-id" class="field-input" placeholder="32-character page ID from URL" autocomplete="off">
-          <span class="field-hint">Found in the page URL after the last <code>/</code> — the part before any <code>?</code></span>
-        </div>
-        <button id="save-notion-settings" class="btn-secondary">Save Settings</button>
-      </div>
-    </div>
 
   </div>
 
@@ -263,9 +263,9 @@
       </div>
 
       <div class="question-nav">
-        <button id="skip-button" class="btn-ghost">skip</button>
+        <button id="skip-button" class="btn-ghost" data-i18n="btn-skip">skip</button>
         <button id="next-button" class="btn-primary">
-          <span id="next-btn-text">Continue</span>
+          <span id="next-btn-text" data-i18n="btn-continue">Continue</span>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -275,7 +275,7 @@
 
     <!-- Decorative side botanical -->
     <div class="question-botanical" aria-hidden="true">
-      <svg viewBox="0 0 60 180" width="30" height="90" fill="none" stroke="#C4A578" stroke-width="0.5" opacity="0.22">
+      <svg viewBox="0 0 60 180" width="30" height="90" fill="none" stroke="#3B82F6" stroke-width="0.5" opacity="0.18">
         <line x1="30" y1="0" x2="30" y2="180"/>
         <circle cx="30" cy="90" r="10"/>
         <ellipse cx="30" cy="72" rx="4" ry="16"/>
@@ -295,87 +295,78 @@
     <div class="completion-layout">
 
       <div class="completion-header">
-        <div class="eyebrow-text">— session complete —</div>
-        <h2 class="completion-title">You showed up.</h2>
-        <p class="completion-subtitle">That's the whole practice.</p>
+        <div class="eyebrow-text" data-i18n="completion-eyebrow">— session complete —</div>
+        <h2 class="completion-title" data-i18n="completion-title">You showed up.</h2>
+        <p class="completion-subtitle" data-i18n="completion-subtitle">That's the whole practice.</p>
         <div class="title-divider">
           <span></span>
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-            <circle cx="5" cy="5" r="1.8" fill="#C4A578"/>
-            <circle cx="5" cy="5" r="4.2" stroke="#C4A578" stroke-width="0.5"/>
+            <circle cx="5" cy="5" r="1.8" fill="#3B82F6"/>
+            <circle cx="5" cy="5" r="4.2" stroke="#3B82F6" stroke-width="0.5"/>
           </svg>
           <span></span>
         </div>
       </div>
 
-      <div class="section-label">save your entry</div>
+      <div class="section-label" data-i18n="save-label">save your entry</div>
 
       <div class="save-options">
 
-        <!-- Notion card (prominent) -->
+        <!-- Notion -->
         <div class="save-card notion-card">
           <div class="save-card-header">
             <svg class="save-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <rect x="2.5" y="2.5" width="13" height="13" rx="2" stroke="currentColor" stroke-width="0.8"/>
               <path d="M6 6h6M6 9h6M6 12h4" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
             </svg>
-            <span class="save-label">Notion</span>
+            <span class="save-label-text">Notion</span>
           </div>
-          <p class="save-description">Copy your entry as Notion-ready markdown, or send it directly via your integration.</p>
+          <p class="save-description" data-i18n="notion-desc">Copy your entry as Notion-ready markdown and paste it directly into any Notion page.</p>
           <div class="save-actions">
-            <button id="copy-for-notion-button" class="btn-primary">Copy for Notion</button>
-            <button id="send-to-notion-button" class="btn-secondary">Send via API</button>
+            <button id="copy-for-notion-button" class="btn-primary">
+              <span data-i18n="btn-copy-notion">Copy for Notion</span>
+            </button>
           </div>
-          <div id="notion-copy-success" class="status-msg success hidden">
-            Copied. Open Notion, create or enter a page, and press <kbd>Ctrl+V</kbd> / <kbd>⌘V</kbd> to paste.
+          <div id="notion-copy-success" class="status-msg success hidden" data-i18n="notion-copied">
+            Copied. Open Notion, create or enter a page, and press Ctrl+V / ⌘V to paste.
           </div>
-          <div id="notion-api-status" class="status-msg hidden"></div>
         </div>
 
-        <!-- Other export options -->
+        <!-- Other exports -->
         <div class="save-row">
           <button id="download-markdown-button" class="btn-outline">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M1 1h12v12H1V1zm2.5 3.5v4l2-1.5 2 1.5v-4" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Markdown
+            <span data-i18n="btn-markdown">Markdown</span>
           </button>
           <button id="download-text-button" class="btn-outline">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <rect x="1.5" y="1.5" width="11" height="11" rx="1" stroke="currentColor" stroke-width="0.7"/>
               <path d="M4 5h6M4 7h6M4 9h4" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
             </svg>
-            Plain Text
+            <span data-i18n="btn-text">Plain Text</span>
           </button>
           <button id="download-enex-button" class="btn-outline">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <ellipse cx="7" cy="7" rx="5.5" ry="5.5" stroke="currentColor" stroke-width="0.7"/>
               <path d="M4.5 7h5M7 4.5v5" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
             </svg>
-            Evernote
+            <span data-i18n="btn-evernote">Evernote</span>
           </button>
           <button id="email-button" class="btn-outline">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <rect x="1.5" y="3.5" width="11" height="8" rx="1" stroke="currentColor" stroke-width="0.7"/>
               <path d="M1.5 5l5.5 4 5.5-4" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
             </svg>
-            Email
+            <span data-i18n="btn-email">Email</span>
           </button>
         </div>
 
       </div>
 
-      <button id="restart-button" class="btn-ghost restart-btn">begin again ↺</button>
+      <button id="restart-button" class="btn-ghost restart-btn" data-i18n="btn-restart">begin again ↺</button>
 
-    </div>
-  </div>
-
-  <!-- Notion setup reminder modal -->
-  <div id="notion-setup-reminder" class="modal-overlay hidden" role="dialog" aria-modal="true">
-    <div class="modal-inner">
-      <h3>Set Up Notion First</h3>
-      <p>Add your integration token and parent page ID from the home screen — look for "Configure Notion" below the Start button.</p>
-      <button id="close-reminder" class="btn-primary">Got it</button>
     </div>
   </div>
 
